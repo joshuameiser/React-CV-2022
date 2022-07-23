@@ -12,9 +12,9 @@ export const parameters = {
 	actions: { argTypesRegex: "^on[A-Z].*" },
 	docs: {
 		theme:
-			window.localStorage.getItem("storybook-color-mode") === "dark"
-				? darkTheme
-				: lightTheme,
+			window.localStorage.getItem("storybook-color-mode") === "light"
+				? lightTheme
+				: darkTheme,
 		container: CustomDocContainer,
 		backgrounds: [
 			{ name: "white background", value: "#0000ff", default: true },
@@ -23,7 +23,7 @@ export const parameters = {
 	darkMode: {
 		current: window.localStorage.getItem("storybook-color-mode")
 			? window.localStorage.getItem("storybook-color-mode")
-			: "light",
+			: "dark",
 		dark: { ...darkTheme },
 		light: { ...lightTheme },
 	},

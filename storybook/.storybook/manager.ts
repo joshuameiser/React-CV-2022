@@ -4,7 +4,7 @@ import darkTheme from "./darkTheme";
 
 addons.setConfig({
 	theme:
-		window.localStorage.getItem("storybook-color-mode") === "dark"
-			? darkTheme
-			: lightTheme,
+		window.localStorage.getItem("storybook-color-mode") === "light"
+			? lightTheme
+			: darkTheme,
 });
