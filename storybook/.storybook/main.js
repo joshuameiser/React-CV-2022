@@ -15,6 +15,8 @@ module.exports = {
 		{ name: "@storybook/addon-essentials", options: { actions: false } },
 		"@storybook/addon-interactions",
 		"storybook-dark-mode",
+		"@storybook/preset-scss",
+		"@etchteam/storybook-addon-css-variables-theme",
 	],
 	framework: "@storybook/react",
 	core: {

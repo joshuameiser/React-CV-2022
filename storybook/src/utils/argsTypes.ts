@@ -16,6 +16,10 @@ export interface NumberOptions {
 	step?: number;
 }
 
+export interface ColorProps {
+	colors?: string[];
+}
+
 export interface ArrayOptions {
 	value: string[];
 	// inline is set to true by default
@@ -79,6 +83,32 @@ export const numberArg = (props: ArgProps<number> & NumberOptions = {}) => {
 			min: props.min,
 			step: props.step,
 			type: "number",
+		},
+		defaultValue: props.defaultValue,
+		description: props.description,
+		...(props.if && { if: { arg: props.if } }),
+		...(props.ifNot && { if: { arg: props.ifNot, truthy: false } }),
+		table: {
+			category: props.category,
+			defaultValue: {
+				detail: props.defaultDetail,
+				disabled: !props.defaultSummary && !props.defaultDetail,
+				summary: props.defaultSummary,
+			},
+			type: {
+				detail: props.descriptionDetail,
+				disabled: !props.descriptionSummary && !props.descriptionDetail,
+				summary: props.descriptionSummary ?? "number",
+			},
+		},
+	};
+};
+
+export const colorArg = (props: ArgProps<any> & ColorProps = {}) => {
+	return {
+		control: {
+			type: "color",
+			presetColors: props.colors,
 		},
 		defaultValue: props.defaultValue,
 		description: props.description,
@@ -233,20 +263,6 @@ export const dropdownArg = (props: ArgProps<string> & ArrayOptions) => {
 };
 
 // Custom argTypes:
-export interface ColorProps {
-	defaultValue:
-		| "default"
-		| "primary"
-		| "secondary"
-		| "error"
-		| "info"
-		| "success"
-		| "warning"
-		| "inherit";
-	defaultOption?: boolean;
-	inheritOption?: boolean;
-	description?: string;
-}
 
 export interface SizeProps {
 	defaultValue?: "small" | "medium" | "large";
@@ -254,21 +270,6 @@ export interface SizeProps {
 	mediumOption?: boolean;
 	largeOption?: boolean;
 }
-
-export const colorArg = (props: ColorProps) => {
-	return radioArg({
-		defaultSummary: props.defaultValue,
-		description: props.description,
-		descriptionDetail: `color?: ${
-			props.defaultOption ? '"default" |' : ""
-		}"primary" | "secondary" | "error" | "info" | "success" | "warning"${
-			props.inheritOption ? '| "inherit"' : ""
-		}`,
-		descriptionSummary: "color selection",
-		inline: true,
-		value: ["primary", "secondary", "warning", "success", "info", "error"],
-	});
-};
 
 export const sizeArg = (props: SizeProps = {}) => {
 	const {

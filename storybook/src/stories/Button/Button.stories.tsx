@@ -23,10 +23,7 @@ const argTypes = {
 			"This is the descriptionDetail. The summary is clickable if there is a detail",
 	}),
 	size: sizeArg(),
-	color: colorArg({
-		defaultValue: "secondary",
-		inheritOption: true,
-	}),
+
 	disabled: booleanArg({
 		defaultSummary: "false",
 		descriptionSummary: "This is a descriptionSummary without detail.",

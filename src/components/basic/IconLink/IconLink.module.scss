@@ -1,0 +1,28 @@
+.wrapper {
+	width: 100%;
+	height: 4rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	&:hover {
+		background-color: rgba(0, 100, 255, 0.3);
+		.divider {
+			background-color: var(--primaryColor);
+		}
+	}
+	.divider {
+		background-color: white;
+	}
+	.iconWrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		width: 100%;
+		height: 4rem;
+		color: white;
+		&:hover {
+			color: var(--primaryColor);
+		}
+	}
+}
