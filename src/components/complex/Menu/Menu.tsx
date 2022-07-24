@@ -32,8 +32,7 @@ export const Menu = (props: MenuProps) => {
 
 	return (
 		<Menu className={classes.wrapper}>
-			{/* TODO: Hamburger should take a className instead of a color. Then I can use the variable */}
-			<Hamburger color="white" />
+			<Hamburger className={classes.hamburger} onClick={() => {}} />
 			<Icons>
 				<IconLink icon={faGithub} href="https://github.com/joshuameiser" />
 				<IconLink

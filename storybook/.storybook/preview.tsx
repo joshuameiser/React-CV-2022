@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode";
 import { addons } from "@storybook/addons";
-import "../../src/data/ColorSchemes/main.module.scss";
+import "../../src/data/ColorSchemes/darkMode.module.scss";
+import "../../src/data/ColorSchemes/lightMode.module.scss";
 import "../../src/data/ColorSchemes/greenInferno.module.scss";
 
 const channel = addons.getChannel();
@@ -17,7 +18,7 @@ export const globalTypes = {
 		defaultValue: "dark-mode",
 		toolbar: {
 			icon: "circlehollow",
-			items: ["dark-mode", "green-inferno"],
+			items: ["dark-mode", "green-inferno", "light-mode"],
 			showName: true,
 			dynamicTitle: true,
 		},

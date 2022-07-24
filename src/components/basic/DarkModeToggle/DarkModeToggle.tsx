@@ -3,6 +3,7 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import { useEffect } from "react";
+import classes from "./DarkModeToggle.module.scss";
 
 export interface DarkModeToggleProps {
 	theme: string | undefined;
@@ -31,7 +32,10 @@ export const DarkModeToggle = (props: DarkModeToggleProps) => {
 					? props.setTheme("light-mode")
 					: props.setTheme("dark-mode");
 			}}>
-			<FontAwesomeIcon icon={props.theme === "dark-mode" ? faMoon : faSun} />
+			<FontAwesomeIcon
+				className={classes.icon}
+				icon={props.theme === "dark-mode" ? faMoon : faSun}
+			/>
 		</ModeToggle>
 	);
 };

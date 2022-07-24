@@ -5,7 +5,7 @@ specifiers:
   '@fortawesome/free-brands-svg-icons': ^6.1.1
   '@fortawesome/free-solid-svg-icons': ^6.1.1
   '@fortawesome/react-fontawesome': ^0.2.0
-  '@joshuameiser/hamburger': ^1.0.6
+  '@joshuameiser/hamburger': ^1.0.11
   '@types/react': ^18.0.0
   '@types/react-dom': ^18.0.0
   '@types/styled-components': ^5.1.25
@@ -22,7 +22,7 @@ dependencies:
   '@fortawesome/free-brands-svg-icons': 6.1.1
   '@fortawesome/free-solid-svg-icons': 6.1.1
   '@fortawesome/react-fontawesome': 0.2.0_sdfg7szeivrzzj63kiqxwaxkwu
-  '@joshuameiser/hamburger': 1.0.6_@types+react@18.0.15
+  '@joshuameiser/hamburger': 1.0.11_@types+react@18.0.15
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   sass: 1.53.0
@@ -400,8 +400,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@joshuameiser/hamburger/1.0.6_@types+react@18.0.15:
-    resolution: {integrity: sha512-sw9/khGfpMElJC/cNBHKJf4tzuneTpS/wueyqLf/Zn8TIVeQgThoymy/Fpiw+64B0Z1N27t8r07+Ndc3ghLpWQ==}
+  /@joshuameiser/hamburger/1.0.11_@types+react@18.0.15:
+    resolution: {integrity: sha512-/JukTfBC4Boq+nmX4QbSKO6v0oJbc9FR+lKCZsTsk5h3LnVncRGtJvd0f8fdddZOakd5DaTY7v9rds64x0ydug==}
     dependencies:
       '@babel/polyfill': 7.12.1
       '@mui/material': 5.9.1_bb2bxwco6ptpubzwpazr52qf6i
