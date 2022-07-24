@@ -11,6 +11,7 @@ import Hamburger from "@joshuameiser/hamburger";
 
 const argTypes = {
 	color: colorArg({ defaultValue: "black" }),
+	func: booleanArg(),
 };
 
 export default {
@@ -21,7 +22,17 @@ export default {
 	},
 };
 
-const Template: Story = ({ color }) => {
+const Template: Story = ({ color, func }) => {
+	if (func) {
+		return (
+			<Hamburger
+				color={color}
+				onClick={() => {
+					console.log("test");
+				}}
+			/>
+		);
+	}
 	return <Hamburger color={color} />;
 };
 

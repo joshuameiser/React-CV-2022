@@ -5,8 +5,14 @@ import "../../data/ColorSchemes/greenInferno.module.scss";
 import classes from "./Layout.module.scss";
 import Menu from "../../components/complex/Menu/Menu";
 import DarkModeToggle from "../../components/basic/DarkModeToggle/DarkModeToggle";
+import styled from "styled-components";
 
 export const themes = ["dark-mode", "green-inferno", "light-mode"];
+
+const Content = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
 
 export const Layout = () => {
 	const [theme, setTheme] = useState<string | undefined>(undefined);
@@ -23,6 +29,7 @@ export const Layout = () => {
 		<div data-theme={theme} className={classes.layout}>
 			<DarkModeToggle theme={theme} setTheme={setTheme} />
 			<Menu />
+			<Content></Content>
 		</div>
 	);
 };

@@ -10,16 +10,16 @@ export interface DarkModeToggleProps {
 	setTheme: Function;
 }
 
-export const DarkModeToggle = (props: DarkModeToggleProps) => {
-	const ModeToggle = styled.div`
-		width: 32px;
-		height: 32px;
-		position: fixed;
-		top: 16px;
-		right: 16px;
-		font-size: 2rem;
-	`;
+const ModeToggle = styled.div`
+	width: 32px;
+	height: 32px;
+	position: fixed;
+	top: 16px;
+	right: 16px;
+	font-size: 2rem;
+`;
 
+export const DarkModeToggle = (props: DarkModeToggleProps) => {
 	useEffect(() => {
 		props.theme !== undefined &&
 			window.localStorage.setItem("color-mode", props.theme);

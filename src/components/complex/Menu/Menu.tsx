@@ -8,43 +8,79 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import classes from "./Menu.module.scss";
 import IconLink from "../../basic/IconLink/IconLink";
+import { useState } from "react";
 
 export interface MenuProps {}
 
-export const Menu = (props: MenuProps) => {
-	const Menu = styled.div`
-		width: 10vw;
-		height: 100vh;
-		display: flex;
-		justify-content: space-between;
-		box-sizing: border-box;
-		padding: 16px 0 0 0;
-		align-items: center;
-		flex-direction: column;
-	`;
+const MenuWrapper = styled.div`
+	width: 10vw;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 16px 0 0 0;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+`;
 
-	const Icons = styled.div`
-		width: 100%;
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-	`;
+const Icons = styled.div`
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+`;
+
+const Backdrop = styled.div<{ backdropOpen: boolean }>`
+	// opacity: ${(props) => (props.backdropOpen ? "1" : "0")};
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 100vh;
+	transition: 1s ease-in-out;
+	width: 0px;
+	${(props) =>
+		props.backdropOpen
+			? {
+					width: "100vw",
+					backgroundColor: "var(--primaryColor)",
+			  }
+			: {
+					backgroundColor: "var(--backgroundColor)",
+			  }}
+`;
+
+export const Menu = (props: MenuProps) => {
+	const [backdropOpen, setBackdropOpen] = useState(false);
 
 	return (
-		<Menu className={classes.wrapper}>
-			<Hamburger className={classes.hamburger} onClick={() => {}} />
-			<Icons>
-				<IconLink icon={faGithub} href="https://github.com/joshuameiser" />
-				<IconLink
-					icon={faInstagram}
-					href="https://www.linkedin.com/in/joshua-meiser/"
+		<>
+			<MenuWrapper className={classes.wrapper}>
+				<Hamburger
+					className={classes.hamburger}
+					onClick={() => {
+						setBackdropOpen(!backdropOpen);
+					}}
 				/>
-				<IconLink
-					icon={faLinkedin}
-					href="https://www.instagram.com/joshua.meiser/"
-				/>
-			</Icons>
-		</Menu>
+				<Icons>
+					<IconLink icon={faGithub} href="https://github.com/joshuameiser" />
+					<IconLink
+						icon={faInstagram}
+						href="https://www.linkedin.com/in/joshua-meiser/"
+					/>
+					<IconLink
+						icon={faLinkedin}
+						href="https://www.instagram.com/joshua.meiser/"
+					/>
+				</Icons>
+			</MenuWrapper>
+			<Backdrop
+				backdropOpen={backdropOpen}
+				onClick={() => {
+					setBackdropOpen(false);
+				}}
+			/>
+		</>
 	);
 };
 
