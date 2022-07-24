@@ -1,0 +1,11 @@
+@function hexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
+[data-theme="light-mode"] {
+	--backgroundColor: rgb(59, 59, 59);
+	--secondaryBackgroundColor: #d2d2d2;
+	--primaryColor: rgb(15, 0, 181);
+	--primaryColor-rgb: #{hexToRGB(purple)};
+	--contrastColor: white;
+}

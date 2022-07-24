@@ -4,27 +4,17 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 export interface IconLinkProps {
 	icon: IconDefinition;
+	href?: string;
 }
 
 export const IconLink = (props: IconLinkProps) => {
 	return (
-		<div className={classes.wrapper}>
-			<div
-				style={{
-					width: "90%",
-					height: "1px",
-					// backgroundColor: "white",
-				}}
-				className={classes.divider}
-			/>
+		<a className={classes.wrapper} href={props.href} target="_blank">
+			<div className={classes.divider} />
 			<div className={classes.iconWrapper}>
-				<FontAwesomeIcon
-					className={classes.icon}
-					icon={props.icon}
-					fontSize="30px"
-				/>
+				<FontAwesomeIcon className={classes.icon} icon={props.icon} />
 			</div>
-		</div>
+		</a>
 	);
 };
 

@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import Hamburger from "@joshuameiser/hamburger";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import {
+	faLinkedin,
+	faInstagram,
+	faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 import classes from "./Menu.module.scss";
 import IconLink from "../../basic/IconLink/IconLink";
 
@@ -11,7 +15,6 @@ export const Menu = (props: MenuProps) => {
 	const Menu = styled.div`
 		width: 10vw;
 		height: 100vh;
-		background-color: black;
 		display: flex;
 		justify-content: space-between;
 		box-sizing: border-box;
@@ -28,11 +31,19 @@ export const Menu = (props: MenuProps) => {
 	`;
 
 	return (
-		<Menu>
+		<Menu className={classes.wrapper}>
+			{/* TODO: Hamburger should take a className instead of a color. Then I can use the variable */}
 			<Hamburger color="white" />
 			<Icons>
-				<IconLink icon={faInstagram} />
-				<IconLink icon={faLinkedin} />
+				<IconLink icon={faGithub} href="https://github.com/joshuameiser" />
+				<IconLink
+					icon={faInstagram}
+					href="https://www.linkedin.com/in/joshua-meiser/"
+				/>
+				<IconLink
+					icon={faLinkedin}
+					href="https://www.instagram.com/joshua.meiser/"
+				/>
 			</Icons>
 		</Menu>
 	);

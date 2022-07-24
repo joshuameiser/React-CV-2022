@@ -4,6 +4,7 @@
 
 [data-theme="dark-mode"] {
 	--backgroundColor: black;
+	--secondaryBackgroundColor: #303030;
 	--primaryColor: purple;
 	--primaryColor-rgb: #{hexToRGB(purple)};
 	--contrastColor: white;
