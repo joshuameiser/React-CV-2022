@@ -1,4 +1,10 @@
+@function hexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
 [data-theme="dark-mode"] {
 	--backgroundColor: black;
 	--primaryColor: purple;
+	--primaryColor-rgb: #{hexToRGB(purple)};
+	--contrastColor: white;
 }
