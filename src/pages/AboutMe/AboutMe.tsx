@@ -5,9 +5,9 @@ import classes from "./AboutMe.module.scss";
 const OuterCircle = styled.div`
 	width: 400px;
 	height: 400px;
-	z-index: 2;
 	border-radius: 50%;
 	display: flex;
+	z-index: 1;
 	justify-content: center;
 	align-items: center;
 `;
@@ -15,12 +15,12 @@ const OuterCircle = styled.div`
 const InnerCircle = styled.div`
 	width: calc(100% - 40px);
 	height: calc(100% - 40px);
-	z-index: 2;
 	border-radius: 50%;
 	background-color: black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 1;
 	background: url(${image});
 	background-position: fit;
 	background-size: 100%;
@@ -29,8 +29,8 @@ const InnerCircle = styled.div`
 const Text = styled.p`
 	font-size: 6rem;
 	margin: 0;
+	z-index: 1;
 	font-weight: 700;
-	z-index: 2;
 	font-family: "Saira Extra Condensed";
 `;
 
@@ -40,6 +40,7 @@ const Backdrop = styled.div`
 	height: 160px;
 	top: calc(50% - 80px);
 	left: 0px;
+	z-index: 0;
 `;
 
 const Image = () => {
@@ -50,6 +51,10 @@ const Image = () => {
 	);
 };
 
+// TODO: Make the homepage responsive (width is fine, height breaks quite easily)
+// TODO: Create custom components for the name, image etc.
+// TODO: Document the page in Storybook (probably not necessary right away, as it's not a final design either)
+// TODO: Add the text content into the data folder
 export const AboutMe = () => {
 	return (
 		<div
