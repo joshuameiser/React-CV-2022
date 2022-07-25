@@ -21,7 +21,8 @@ const MenuWrapper = styled.div`
 	padding: 16px 0 0 0;
 	align-items: center;
 	flex-direction: column;
-	position: relative;
+	position: sticky;
+	top: 0px;
 `;
 
 const Icons = styled.div`
