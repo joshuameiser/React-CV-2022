@@ -33,7 +33,13 @@ export const Layout = () => {
 			<Menu />
 			<Content>
 				<AboutMe />
-				<AboutMe />
+				<div
+					style={{
+						height: "100vh",
+						width: "100vw",
+						backgroundColor: "var(--secondaryBackgroundColor)",
+					}}
+				/>
 			</Content>
 		</div>
 	);

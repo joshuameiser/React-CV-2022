@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image from "../../data/Portrait.jpeg";
+import image from "../../data/MyImage.png";
 import classes from "./AboutMe.module.scss";
 
 const OuterCircle = styled.div`
@@ -27,7 +27,7 @@ const InnerCircle = styled.div`
 `;
 
 const Text = styled.p`
-	font-size: 6rem;
+	font-size: 10rem;
 	margin: 0;
 	z-index: 1;
 	font-weight: 700;
@@ -59,17 +59,23 @@ export const AboutMe = () => {
 	return (
 		<div
 			style={{
+				background:
+					"linear-gradient(180deg, var(--backgroundColor) 0%, var(--backgroundColor) 60%, var(--primaryColor) 100%)",
 				display: "flex",
+				// justifyContent: "space-around",
+				// alignItems: "center",
+				alignItems: "space-around",
 				justifyContent: "space-around",
-				alignItems: "center",
 				width: "inherit",
 				height: "100vh",
-				flexDirection: "column",
+				// flexDirection: "column",
 			}}>
-			<Text className={classes.text}>JOSHUA</Text>
+			{/* <Text className={classes.text}>JOSHUA</Text>
 			<Image />
-			<Text className={classes.text}>MEISER</Text>
-			<Backdrop className={classes.backdrop} />
+			<Text className={classes.text}>MEISER</Text> */}
+			{/* TODO: I kinda like this, BUT I want the image to go out of screen when hovering. So the image should always either be entirely visible or not at all */}
+			<img src={image} style={{ maxHeight: "100%" }} />
+			{/* <Backdrop className={classes.backdrop} /> */}
 		</div>
 	);
 };
