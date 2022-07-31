@@ -43,6 +43,39 @@ const Backdrop = styled.div`
 	z-index: 0;
 `;
 
+const ImageWrapper = styled.div`
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-bottom: 5rem;
+	${Text} {
+		line-height: 3rem;
+		font-size: 3rem;
+	}
+
+	@media (min-height: 440px) {
+		${Text} {
+			font-size: 4rem;
+			line-height: 4rem;
+		}
+	}
+
+	@media (min-height: 540px) {
+		${Text} {
+			font-size: 6rem;
+			line-height: 6rem;
+		}
+	}
+
+	@media (min-height: 600px) {
+		padding-bottom: 7rem;
+		${Text} {
+			font-size: 8rem;
+		}
+	}
+`;
+
 const Image = () => {
 	return (
 		<OuterCircle className={classes.outerCircle}>
@@ -62,22 +95,25 @@ export const AboutMe = () => {
 				background:
 					"linear-gradient(180deg, var(--backgroundColor) 0%, var(--backgroundColor) 60%, var(--primaryColor) 100%)",
 				display: "flex",
-				// justifyContent: "space-around",
-				// alignItems: "center",
+				justifyContent: "flex-end",
 				alignItems: "center",
-				justifyContent: "space-evenly",
 				width: "inherit",
 				height: "100vh",
-				// flexDirection: "column",
+				flexDirection: "column",
 			}}>
 			{/* <Text className={classes.text}>JOSHUA</Text>
 			<Image />
 			<Text className={classes.text}>MEISER</Text> */}
 			{/* TODO: I kinda like this, BUT I want the image to go out of screen when hovering. So the image should always either be entirely visible or not at all */}
 			{/* TODO: Positioning of the image is still shit. I'd like the png to be as little as possible frame wise. */}
-			<Text className={classes.text}>JOSHUA</Text>
-			<img src={image} style={{ maxHeight: "100%" }} />
-			<Text className={classes.text}>MEISER</Text>
+			<ImageWrapper>
+				<Text className={classes.text}>JOSHUA</Text>
+				<Text className={classes.text}>MEISER</Text>
+			</ImageWrapper>
+			<img
+				src={image}
+				style={{ maxHeight: "94%", position: "absolute", bottom: "0px" }}
+			/>
 			{/* <Backdrop className={classes.backdrop} /> */}
 		</div>
 	);

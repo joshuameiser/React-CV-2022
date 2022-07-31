@@ -40,8 +40,10 @@ export const Layout = () => {
 				<div
 					style={{
 						height: "100vh",
-						width: "100vw",
+						width: "inherit",
 						backgroundColor: "var(--secondaryBackgroundColor)",
+						background:
+							"linear-gradient(180deg, var(--primaryColor) 0%, var(--backgroundColor) 40%, var(--backgroundColor) 100%)",
 					}}
 				/>
 			</Content>

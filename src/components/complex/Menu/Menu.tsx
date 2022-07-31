@@ -23,6 +23,7 @@ const MenuWrapper = styled.div`
 	flex-direction: column;
 	position: sticky;
 	top: 0px;
+	left: 0px;
 `;
 
 const Icons = styled.div`
