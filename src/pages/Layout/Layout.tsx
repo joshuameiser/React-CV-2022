@@ -21,7 +21,11 @@ export const Layout = () => {
 
 	useEffect(() => {
 		const savedTheme = window.localStorage.getItem("color-mode");
-		setTheme(savedTheme ?? "dark-mode");
+		setTheme(
+			savedTheme ?? window.matchMedia("(prefers-color-scheme: dark)").matches
+				? "dark-mode"
+				: "light-mode"
+		);
 	}, []);
 	// Currently just a very simple theme toggle (only two themes possible right now, make more available?)
 	// TODO: Add an actual theme toggle

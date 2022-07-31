@@ -27,7 +27,7 @@ const InnerCircle = styled.div`
 `;
 
 const Text = styled.p`
-	font-size: 10rem;
+	font-size: 8rem;
 	margin: 0;
 	z-index: 1;
 	font-weight: 700;
@@ -64,8 +64,8 @@ export const AboutMe = () => {
 				display: "flex",
 				// justifyContent: "space-around",
 				// alignItems: "center",
-				alignItems: "space-around",
-				justifyContent: "space-around",
+				alignItems: "center",
+				justifyContent: "space-evenly",
 				width: "inherit",
 				height: "100vh",
 				// flexDirection: "column",
@@ -74,7 +74,10 @@ export const AboutMe = () => {
 			<Image />
 			<Text className={classes.text}>MEISER</Text> */}
 			{/* TODO: I kinda like this, BUT I want the image to go out of screen when hovering. So the image should always either be entirely visible or not at all */}
+			{/* TODO: Positioning of the image is still shit. I'd like the png to be as little as possible frame wise. */}
+			<Text className={classes.text}>JOSHUA</Text>
 			<img src={image} style={{ maxHeight: "100%" }} />
+			<Text className={classes.text}>MEISER</Text>
 			{/* <Backdrop className={classes.backdrop} /> */}
 		</div>
 	);
