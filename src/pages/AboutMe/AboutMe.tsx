@@ -52,6 +52,11 @@ const ImageWrapper = styled.div`
 	${Text} {
 		line-height: 3rem;
 		font-size: 3rem;
+		user-select: none;
+		overflow: hidden;
+		&:hover {
+			color: var(--primaryColor);
+		}
 	}
 
 	@media (min-height: 440px) {

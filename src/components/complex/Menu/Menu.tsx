@@ -42,6 +42,7 @@ const Backdrop = styled.div<{ backdropOpen: boolean }>`
 	transition: 1s ease-in-out;
 	z-index: 2;
 	width: 0px;
+	transition: 1s ease-in-out;
 	${(props) =>
 		props.backdropOpen
 			? {
