@@ -24,6 +24,8 @@ const MenuWrapper = styled.div`
 	position: sticky;
 	top: 0px;
 	left: 0px;
+	background-color: var(--backgroundColor);
+	z-index: 10;
 `;
 
 const Icons = styled.div`

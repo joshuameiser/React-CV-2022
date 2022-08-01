@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import { useEffect } from "react";
@@ -19,6 +18,15 @@ const ModeToggle = styled.div`
 	font-size: 2rem;
 `;
 
+const StyledIcon = styled(FontAwesomeIcon)`
+	color: var(--contrastColor);
+	cursor: pointer;
+	transition: 0.4s;
+	&:hover {
+		color: var(--primaryColor);
+	}
+`;
+
 export const DarkModeToggle = (props: DarkModeToggleProps) => {
 	useEffect(() => {
 		props.theme !== undefined &&
@@ -32,7 +40,7 @@ export const DarkModeToggle = (props: DarkModeToggleProps) => {
 					? props.setTheme("light-mode")
 					: props.setTheme("dark-mode");
 			}}>
-			<FontAwesomeIcon
+			<StyledIcon
 				className={classes.icon}
 				icon={props.theme === "dark-mode" ? faMoon : faSun}
 			/>
