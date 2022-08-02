@@ -5,7 +5,8 @@ import "../../data/ColorSchemes/greenInferno.module.scss";
 import Menu from "../../components/complex/Menu/Menu";
 import DarkModeToggle from "../../components/basic/DarkModeToggle/DarkModeToggle";
 import styled from "styled-components";
-import { FrontPage } from "../AboutMe/FrontPage";
+import { FrontPage } from "../FrontPage/FrontPage";
+import AboutMe from "../AboutMe/AboutMe";
 
 export const themes = ["dark-mode", "green-inferno", "light-mode"];
 
@@ -13,6 +14,7 @@ const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: calc(100vw - 10vw);
+	overflow-x: hidden;
 `;
 
 const LayoutWrapper = styled.div`
@@ -43,14 +45,7 @@ export const Layout = () => {
 			<Menu />
 			<Content>
 				<FrontPage />
-				<div
-					style={{
-						height: "100vh",
-						width: "inherit",
-						backgroundColor: "var(--secondaryBackgroundColor)",
-						zIndex: 1,
-					}}
-				/>
+				<AboutMe />
 			</Content>
 		</LayoutWrapper>
 	);
