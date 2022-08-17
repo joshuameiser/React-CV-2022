@@ -6,4 +6,5 @@ body {
 
 * {
 	font-family: "Saira Extra Condensed";
+	user-select: none;
 }

@@ -30,9 +30,40 @@ const Description = styled.p<{ inView: boolean }>`
 	margin-left: 4rem;
 	transition: 1s ease-in-out;
 	transform: ${(p) => (p.inView ? "translateY(0px)" : "translateY(200px)")};
+	align-items: center;
 	color: ${(p) =>
 		!p.inView ? "var(--contrastColor)" : "var(--secondaryColor)"};
+	user-select: none;
 `;
+
+const SVG = styled.svg<{ inView: boolean }>`
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	transition: transform 1s ease-in-out, fill 0.3s ease-in-out;
+	transform: ${(p) => (p.inView ? "translateX(0px)" : "translateX(500px)")};
+	fill: ${(p) =>
+		!p.inView ? "var(--contrastColor)" : "var(--secondaryColor)"};
+	&:hover {
+		fill: var(--primaryColor);
+	}
+	& path {
+		fill: inherit;
+		cursor: pointer;
+	}
+`;
+const DescriptionOpener = (props: { inView: boolean }) => (
+	<SVG
+		inView={props.inView}
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 20 20">
+		<path d="M0 0H20V2H0z"></path>
+		<path d="M0 18H20V20H0z"></path>
+		<path d="M0 0H2V20H0z"></path>
+		<path d="M18 0H20V20H18z"></path>
+	</SVG>
+);
 
 const Category = (props: {
 	inView: boolean;
@@ -47,16 +78,7 @@ const Category = (props: {
 				alignItems: "center",
 			}}>
 			<Description inView={props.inView}>{props.children}</Description>
-			{/* Replace this div with the icon prop */}
-			<div
-				style={{
-					width: "20px",
-					height: "20px",
-					backgroundColor: "aqua",
-					transition: "1s ease-in-out",
-					transform: props.inView ? "translateX(0px)" : "translateX(500px)",
-				}}
-			/>
+			<DescriptionOpener inView={props.inView} />
 		</div>
 	);
 };
@@ -108,7 +130,7 @@ export const AboutMe = () => {
 			<Headline color={color}>Who am I?</Headline>
 			<Category inView={oneInView}>Climber</Category>
 			<Category inView={twoInView}>Developer</Category>
-			<Category inView={threeInView}>Climber</Category>
+			{/* <Category inView={threeInView}>Climber</Category> */}
 		</Wrapper>
 	);
 };
