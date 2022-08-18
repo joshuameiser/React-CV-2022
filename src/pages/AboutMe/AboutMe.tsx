@@ -1,3 +1,4 @@
+import { faRotate } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -28,58 +29,72 @@ const Description = styled.p<{ inView: boolean }>`
 	justify-content: left;
 	margin: 16px 0;
 	margin-left: 4rem;
-	transition: 1s ease-in-out;
+	transition: 1s ease-in-out, color 0.3s ease-in-out;
 	transform: ${(p) => (p.inView ? "translateY(0px)" : "translateY(200px)")};
 	align-items: center;
-	color: ${(p) =>
-		!p.inView ? "var(--contrastColor)" : "var(--secondaryColor)"};
+	color: inherit;
 	user-select: none;
 `;
 
-const SVG = styled.svg<{ inView: boolean }>`
+// This does not work. Instead just have the + which changes to an -, but do it with transitions
+const SVG = styled.svg<{ inView: boolean; clicked: boolean }>`
 	height: 20px;
 	width: 20px;
 	cursor: pointer;
 	transition: transform 1s ease-in-out, fill 0.3s ease-in-out;
 	transform: ${(p) => (p.inView ? "translateX(0px)" : "translateX(500px)")};
-	fill: ${(p) =>
-		!p.inView ? "var(--contrastColor)" : "var(--secondaryColor)"};
-	&:hover {
-		fill: var(--primaryColor);
-	}
+	fill: inherit;
 	& path {
 		fill: inherit;
 		cursor: pointer;
+		transition: fill 0.3s ease-in-out, transform 0.4s ease-in-out;
+		&.plus-line {
+			transform: ${(p) =>
+				p.clicked
+					? "rotate(0deg) translateX(0)"
+					: "rotate(-90deg) translateY(9px) translateX(-11px)"};
+		}
 	}
 `;
-const DescriptionOpener = (props: { inView: boolean }) => (
+const DescriptionOpener = (props: { inView: boolean; clicked: boolean }) => (
 	<SVG
+		clicked={props.clicked}
 		inView={props.inView}
 		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 20 20">
+		viewBox="0 0 20 2">
+		<path className="plus-line" d="M0 0H20V2H0z"></path>
 		<path d="M0 0H20V2H0z"></path>
-		<path d="M0 18H20V20H0z"></path>
-		<path d="M0 0H2V20H0z"></path>
-		<path d="M18 0H20V20H18z"></path>
 	</SVG>
 );
+
+const DescriptionWrapper = styled.div<{ inView: boolean }>`
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: pointer;
+	fill: ${(p) => (p.inView ? "var(--secondaryColor)" : "var(--contrastColor)")};
+	color: ${(p) =>
+		p.inView ? "var(--secondaryColor)" : "var(--contrastColor)"};
+	&:hover {
+		color: var(--primaryColor);
+		path {
+			fill: var(--primaryColor);
+		}
+	}
+`;
 
 const Category = (props: {
 	inView: boolean;
 	children: React.ReactNode;
+	clicked: boolean;
+	onClick: Function;
 	icon?: React.ReactNode;
 }) => {
 	return (
-		<div
-			style={{
-				display: "flex",
-				justifyContent: "flex-start",
-				alignItems: "center",
-			}}>
+		<DescriptionWrapper inView={props.inView} onClick={(e) => props.onClick(e)}>
 			<Description inView={props.inView}>{props.children}</Description>
-			<DescriptionOpener inView={props.inView} />
-		</div>
+			<DescriptionOpener inView={props.inView} clicked={props.clicked} />
+		</DescriptionWrapper>
 	);
 };
 
@@ -88,6 +103,9 @@ export const AboutMe = () => {
 	const [oneInView, setOneInView] = useState<boolean>(false);
 	const [twoInView, setTwoInView] = useState<boolean>(false);
 	const [threeInView, setThreeInView] = useState<boolean>(false);
+
+	const [clickedOne, setClickedOne] = useState<boolean>(false);
+	const [clickedTwo, setClickedTwo] = useState<boolean>(false);
 
 	window.onscroll = function () {
 		"use strict";
@@ -128,8 +146,23 @@ export const AboutMe = () => {
 	return (
 		<Wrapper>
 			<Headline color={color}>Who am I?</Headline>
-			<Category inView={oneInView}>Climber</Category>
-			<Category inView={twoInView}>Developer</Category>
+			<Category
+				clicked={clickedOne}
+				onClick={() => {
+					setClickedOne(!clickedOne);
+					console.log("clicked");
+				}}
+				inView={oneInView}>
+				Climber
+			</Category>
+			<Category
+				clicked={clickedTwo}
+				onClick={() => {
+					setClickedTwo(!clickedTwo);
+				}}
+				inView={twoInView}>
+				Developer
+			</Category>
 			{/* <Category inView={threeInView}>Climber</Category> */}
 		</Wrapper>
 	);
