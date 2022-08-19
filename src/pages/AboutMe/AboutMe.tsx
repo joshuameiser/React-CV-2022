@@ -1,6 +1,7 @@
 import { faRotate } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
 	height: 100vh;
@@ -20,7 +21,7 @@ const Headline = styled.h1<{ color: string }>`
 	color: ${(p) => p.color};
 `;
 
-const Description = styled.p<{ inView: boolean }>`
+const Description = styled(motion.p)<{ inView: boolean }>`
 	width: 40%;
 	height: 60px;
 	font-size: 3rem;
@@ -29,41 +30,40 @@ const Description = styled.p<{ inView: boolean }>`
 	justify-content: left;
 	margin: 16px 0;
 	margin-left: 4rem;
-	transition: 1s ease-in-out, color 0.3s ease-in-out;
-	transform: ${(p) => (p.inView ? "translateY(0px)" : "translateY(200px)")};
+	transition: color 0.3s ease-in-out;
 	align-items: center;
 	color: inherit;
 	user-select: none;
 `;
 
 // This does not work. Instead just have the + which changes to an -, but do it with transitions
-const SVG = styled.svg<{ inView: boolean; clicked: boolean }>`
+const SVG = styled(motion.svg)<{ inView: boolean; clicked: boolean }>`
 	height: 20px;
 	width: 20px;
 	cursor: pointer;
-	transition: transform 1s ease-in-out, fill 0.3s ease-in-out;
-	transform: ${(p) => (p.inView ? "translateX(0px)" : "translateX(500px)")};
 	fill: inherit;
+	overflow: visible;
 	& path {
 		fill: inherit;
 		cursor: pointer;
-		transition: fill 0.3s ease-in-out, transform 0.4s ease-in-out;
-		&.plus-line {
-			transform: ${(p) =>
-				p.clicked
-					? "rotate(0deg) translateX(0)"
-					: "rotate(-90deg) translateY(9px) translateX(-11px)"};
-		}
 	}
 `;
+
 const DescriptionOpener = (props: { inView: boolean; clicked: boolean }) => (
 	<SVG
 		clicked={props.clicked}
 		inView={props.inView}
 		xmlns="http://www.w3.org/2000/svg"
+		animate={props.inView ? { x: 0 } : { x: "100vw" }}
+		transition={{ duration: 1 }}
 		viewBox="0 0 20 2">
-		<path className="plus-line" d="M0 0H20V2H0z"></path>
-		<path d="M0 0H20V2H0z"></path>
+		<motion.path
+			animate={props.clicked ? { rotate: 90 } : { rotate: 0 }}
+			className="plus-line"
+			d="M0 0H20V2H0z"></motion.path>
+		<motion.path
+			animate={props.clicked ? { rotate: 180 } : { rotate: 0 }}
+			d="M0 0H20V2H0z"></motion.path>
 	</SVG>
 );
 
@@ -92,7 +92,12 @@ const Category = (props: {
 }) => {
 	return (
 		<DescriptionWrapper inView={props.inView} onClick={(e) => props.onClick(e)}>
-			<Description inView={props.inView}>{props.children}</Description>
+			<Description
+				animate={props.inView ? { y: 0 } : { y: "100vw" }}
+				transition={{ duration: 1 }}
+				inView={props.inView}>
+				{props.children}
+			</Description>
 			<DescriptionOpener inView={props.inView} clicked={props.clicked} />
 		</DescriptionWrapper>
 	);
