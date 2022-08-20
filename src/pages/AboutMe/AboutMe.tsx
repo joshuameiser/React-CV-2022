@@ -1,7 +1,9 @@
 import { faRotate } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeartbeat } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.div`
 	height: 100vh;
@@ -58,11 +60,11 @@ const DescriptionOpener = (props: { inView: boolean; clicked: boolean }) => (
 		transition={{ duration: 1 }}
 		viewBox="0 0 20 2">
 		<motion.path
-			animate={props.clicked ? { rotate: 90 } : { rotate: 0 }}
+			animate={props.clicked ? { rotate: 180 } : { rotate: 0 }}
 			className="plus-line"
 			d="M0 0H20V2H0z"></motion.path>
 		<motion.path
-			animate={props.clicked ? { rotate: 180 } : { rotate: 0 }}
+			animate={props.clicked ? { rotate: 360 } : { rotate: 90 }}
 			d="M0 0H20V2H0z"></motion.path>
 	</SVG>
 );
@@ -81,6 +83,33 @@ const DescriptionWrapper = styled.div<{ inView: boolean }>`
 			fill: var(--primaryColor);
 		}
 	}
+`;
+
+const TextSection = styled(motion.div)<{}>`
+	max-width: 600px;
+	color: white;
+	font-size: 1.5rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	overflow: hidden;
+	margin: 0 4rem;
+	border-radius: 16px;
+
+	p {
+		padding: 0;
+		margin: 0;
+		text-align: left;
+		line-height: 2rem;
+	}
+`;
+
+const IconWrapper = styled(motion.div)`
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+	margin-left: 1rem;
 `;
 
 const Category = (props: {
@@ -111,6 +140,14 @@ export const AboutMe = () => {
 
 	const [clickedOne, setClickedOne] = useState<boolean>(false);
 	const [clickedTwo, setClickedTwo] = useState<boolean>(false);
+
+	useEffect(() => {
+		setClickedOne(false);
+	}, [oneInView]);
+
+	useEffect(() => {
+		setClickedTwo(false);
+	}, [twoInView]);
 
 	window.onscroll = function () {
 		"use strict";
@@ -158,16 +195,50 @@ export const AboutMe = () => {
 					console.log("clicked");
 				}}
 				inView={oneInView}>
-				Climber
+				Developer
 			</Category>
+			<TextSection
+				animate={
+					clickedOne
+						? { height: "auto", border: "2px solid var(--secondaryColor)" }
+						: { height: 0, padding: 0, border: "none" }
+				}>
+				<p>I am a passionate Frontend developer with a clear love for React.</p>
+				<p>
+					I love creating components, or entire websites utilizing SCSS or
+					Styled Components and am always excited to find new ways of
+					developing.
+					<IconWrapper
+						animate={{
+							scale: [1, 1.2, 1],
+							color: "var(--secondaryColor)",
+						}}
+						transition={{ repeat: Infinity, duration: 2 }}>
+						<FontAwesomeIcon icon={faHeartbeat} />
+					</IconWrapper>
+				</p>
+			</TextSection>
 			<Category
 				clicked={clickedTwo}
 				onClick={() => {
 					setClickedTwo(!clickedTwo);
 				}}
 				inView={twoInView}>
-				Developer
+				Climber
 			</Category>
+			<TextSection
+				animate={
+					clickedTwo
+						? { height: "auto", border: "2px solid var(--secondaryColor)" }
+						: { height: 0, padding: 0, border: "none" }
+				}>
+				{/* Would like to add more information about my bouldering here. Maybe link to another website once I have one. */}
+				<p>
+					After work, my heart primarily beats for climbing, or more
+					specifically for bouldering. I have been doing this sport since the
+					age of 13 and could not imagine a life without it anymore.
+				</p>
+			</TextSection>
 			{/* <Category inView={threeInView}>Climber</Category> */}
 		</Wrapper>
 	);
