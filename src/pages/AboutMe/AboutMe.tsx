@@ -7,7 +7,7 @@ import { faHeartbeat } from "@fortawesome/free-solid-svg-icons";
 import { Category } from "./components/Category";
 
 const Wrapper = styled.div`
-	height: 100vh;
+	min-height: 100vh;
 	z-index: 1;
 	overflow: hidden;
 	background: var(--backgroundColor);
@@ -22,6 +22,14 @@ const Headline = styled.h1<{ color: string }>`
 	margin-left: 4rem;
 	transition: 0.6s ease-in-out;
 	color: ${(p) => p.color};
+
+	@media (max-width: 920px) {
+		font-size: 5rem;
+	}
+
+	@media (max-width: 720px) {
+		font-size: 4rem;
+	}
 `;
 
 const IconWrapper = styled(motion.div)`

@@ -42,6 +42,16 @@ const SVG = styled(motion.svg)<{ inView: boolean; clicked: boolean }>`
 		fill: inherit;
 		cursor: pointer;
 	}
+
+	@media (max-width: 920px) {
+		height: 18px;
+		width: 18px;
+	}
+
+	@media (max-width: 720px) {
+		height: 16px;
+		width: 16px;
+	}
 `;
 
 const Description = styled(motion.p)<{ inView: boolean }>`
@@ -57,6 +67,22 @@ const Description = styled(motion.p)<{ inView: boolean }>`
 	align-items: center;
 	color: inherit;
 	user-select: none;
+
+	@media (max-width: 920px) {
+		font-size: 2.5rem;
+	}
+
+	@media (max-width: 720px) {
+		width: 50%;
+	}
+
+	@media (max-width: 580px) {
+		width: 60%;
+	}
+
+	@media (max-width: 480px) {
+		font-size: 2rem;
+	}
 `;
 
 const TextSection = styled(motion.div)<{}>`
