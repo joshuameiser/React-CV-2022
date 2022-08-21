@@ -69,14 +69,23 @@ const DescriptionOpener = (props: { inView: boolean; clicked: boolean }) => (
 	</SVG>
 );
 
-const DescriptionWrapper = styled.div<{ inView: boolean }>`
+const DescriptionWrapper = styled.div<{ inView: boolean; clicked: boolean }>`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	cursor: pointer;
-	fill: ${(p) => (p.inView ? "var(--secondaryColor)" : "var(--contrastColor)")};
+	fill: ${(p) =>
+		p.clicked
+			? "var(--primaryColor)"
+			: p.inView
+			? "var(--secondaryColor)"
+			: "var(--contrastColor)"};
 	color: ${(p) =>
-		p.inView ? "var(--secondaryColor)" : "var(--contrastColor)"};
+		p.clicked
+			? "var(--primaryColor)"
+			: p.inView
+			? "var(--secondaryColor)"
+			: "var(--contrastColor)"};
 	&:hover {
 		color: var(--primaryColor);
 		path {
@@ -120,7 +129,10 @@ const Category = (props: {
 	icon?: React.ReactNode;
 }) => {
 	return (
-		<DescriptionWrapper inView={props.inView} onClick={(e) => props.onClick(e)}>
+		<DescriptionWrapper
+			clicked={props.clicked}
+			inView={props.inView}
+			onClick={(e) => props.onClick(e)}>
 			<Description
 				animate={props.inView ? { y: 0 } : { y: "100vw" }}
 				transition={{ duration: 1 }}
@@ -148,6 +160,14 @@ export const AboutMe = () => {
 	useEffect(() => {
 		setClickedTwo(false);
 	}, [twoInView]);
+
+	useEffect(() => {
+		clickedOne && clickedTwo && setClickedTwo(false);
+	}, [clickedOne]);
+
+	useEffect(() => {
+		clickedOne && clickedTwo && setClickedOne(false);
+	}, [clickedTwo]);
 
 	window.onscroll = function () {
 		"use strict";
@@ -200,7 +220,7 @@ export const AboutMe = () => {
 			<TextSection
 				animate={
 					clickedOne
-						? { height: "auto", border: "2px solid var(--secondaryColor)" }
+						? { height: "auto", border: "2px solid var(--primaryColor)" }
 						: { height: 0, padding: 0, border: "none" }
 				}>
 				<p>I am a passionate Frontend developer with a clear love for React.</p>
@@ -229,7 +249,7 @@ export const AboutMe = () => {
 			<TextSection
 				animate={
 					clickedTwo
-						? { height: "auto", border: "2px solid var(--secondaryColor)" }
+						? { height: "auto", border: "2px solid var(--primaryColor)" }
 						: { height: 0, padding: 0, border: "none" }
 				}>
 				{/* Would like to add more information about my bouldering here. Maybe link to another website once I have one. */}
