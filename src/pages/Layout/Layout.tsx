@@ -7,6 +7,7 @@ import DarkModeToggle from "../../components/basic/DarkModeToggle/DarkModeToggle
 import styled from "styled-components";
 import { FrontPage } from "../FrontPage/FrontPage";
 import AboutMe from "../AboutMe/AboutMe";
+import MyProjects from "../MyProjects/MyProjects";
 
 export const themes = ["dark-mode", "green-inferno", "light-mode"];
 
@@ -46,6 +47,7 @@ export const Layout = () => {
 			<Content>
 				<FrontPage />
 				<AboutMe />
+				<MyProjects />
 			</Content>
 		</LayoutWrapper>
 	);

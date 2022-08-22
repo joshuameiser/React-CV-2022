@@ -5,31 +5,13 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartbeat } from "@fortawesome/free-solid-svg-icons";
 import { Category } from "./components/Category";
+import Headline from "../../components/basic/Headline/Headline";
 
 const Wrapper = styled.div`
-	min-height: 100vh;
 	z-index: 1;
 	overflow: hidden;
 	background: var(--backgroundColor);
-`;
-
-const Headline = styled.h1<{ color: string }>`
-	width: 100vw;
-	font-size: 6rem;
-	color: var(--primaryColor);
-	display: flex;
-	justify-content: left;
-	margin-left: 4rem;
-	transition: 0.6s ease-in-out;
-	color: ${(p) => p.color};
-
-	@media (max-width: 920px) {
-		font-size: 5rem;
-	}
-
-	@media (max-width: 720px) {
-		font-size: 4rem;
-	}
+	padding-bottom: 100px;
 `;
 
 const IconWrapper = styled(motion.div)`
@@ -40,7 +22,6 @@ const IconWrapper = styled(motion.div)`
 `;
 
 export const AboutMe = () => {
-	const [color, setColor] = useState<string>("aqua");
 	const [oneInView, setOneInView] = useState<boolean>(false);
 	const [twoInView, setTwoInView] = useState<boolean>(false);
 	const [threeInView, setThreeInView] = useState<boolean>(false);
@@ -78,18 +59,6 @@ export const AboutMe = () => {
 
 	window.onscroll = function () {
 		"use strict";
-		if (
-			window.scrollY < 0.5 * window.innerHeight &&
-			color !== "var(--contrastColor)"
-		) {
-			setColor("var(--contrastColor)");
-		} else if (
-			window.scrollY >= 0.5 * window.innerHeight &&
-			color !== "var(--primaryColor)"
-		) {
-			setColor("var(--primaryColor)");
-		}
-
 		if (window.scrollY < 0.6 * window.innerHeight && oneInView) {
 			setOneInView(false);
 		} else if (window.scrollY >= 0.6 * window.innerHeight && !oneInView) {
@@ -114,7 +83,7 @@ export const AboutMe = () => {
 
 	return (
 		<Wrapper>
-			<Headline color={color}>Who am I?</Headline>
+			<Headline>Who am I?</Headline>
 			<Category
 				title="Developer"
 				clicked={clickedOne}

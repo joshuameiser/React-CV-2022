@@ -15,6 +15,7 @@ const ModeToggle = styled.div`
 	top: 16px;
 	right: 16px;
 	font-size: 2rem;
+	z-index: 2;
 `;
 
 const StyledIcon = styled(FontAwesomeIcon)`
