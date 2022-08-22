@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { forwardRef, useRef } from "react";
 import styled from "styled-components";
 
 const DescriptionWrapper = styled.div<{ inView: boolean; clicked: boolean }>`
@@ -123,24 +124,32 @@ const DescriptionOpener = (props: { inView: boolean; clicked: boolean }) => (
 	</SVG>
 );
 
-export const Category = (props: {
-	inView: boolean;
+export interface CategoryProps {
 	title: string;
 	children: React.ReactNode;
 	clicked: boolean;
 	onClick: Function;
 	icon?: React.ReactNode;
-}) => {
+}
+
+export type Ref = HTMLDivElement;
+
+export const Category = (props: CategoryProps) => {
+	const categoryRef = useRef(null);
+	const isInView: boolean = useInView(categoryRef, {
+		margin: "0px 100px -100px 0px",
+	});
+
 	return (
-		<CategoryWrapper onClick={(e) => props.onClick(e)}>
-			<DescriptionWrapper clicked={props.clicked} inView={props.inView}>
+		<CategoryWrapper onClick={(e) => props.onClick(e)} ref={categoryRef}>
+			<DescriptionWrapper clicked={props.clicked} inView={isInView}>
 				<Description
-					animate={props.inView ? { y: 0 } : { y: "100vw" }}
+					animate={isInView ? { y: 0 } : { y: "100vw" }}
 					transition={{ duration: 1 }}
-					inView={props.inView}>
+					inView={isInView}>
 					{props.title}
 				</Description>
-				<DescriptionOpener inView={props.inView} clicked={props.clicked} />
+				<DescriptionOpener inView={isInView} clicked={props.clicked} />
 			</DescriptionWrapper>
 			<TextSection
 				animate={

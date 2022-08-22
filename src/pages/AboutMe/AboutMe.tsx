@@ -1,5 +1,5 @@
 import { faRotate } from "@fortawesome/free-solid-svg-icons";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,25 +22,9 @@ const IconWrapper = styled(motion.div)`
 `;
 
 export const AboutMe = () => {
-	const [oneInView, setOneInView] = useState<boolean>(false);
-	const [twoInView, setTwoInView] = useState<boolean>(false);
-	const [threeInView, setThreeInView] = useState<boolean>(false);
-
 	const [clickedOne, setClickedOne] = useState<boolean>(false);
 	const [clickedTwo, setClickedTwo] = useState<boolean>(false);
 	const [clickedThree, setClickedThree] = useState<boolean>(false);
-
-	useEffect(() => {
-		setClickedOne(false);
-	}, [oneInView]);
-
-	useEffect(() => {
-		setClickedTwo(false);
-	}, [twoInView]);
-
-	useEffect(() => {
-		setClickedThree(false);
-	}, [threeInView]);
 
 	useEffect(() => {
 		clickedTwo && clickedOne && setClickedTwo(false);
@@ -57,30 +41,6 @@ export const AboutMe = () => {
 		clickedTwo && clickedThree && setClickedTwo(false);
 	}, [clickedThree]);
 
-	window.onscroll = function () {
-		"use strict";
-		if (window.scrollY < 0.6 * window.innerHeight && oneInView) {
-			setOneInView(false);
-		} else if (window.scrollY >= 0.6 * window.innerHeight && !oneInView) {
-			setOneInView(true);
-		}
-
-		if (window.scrollY < 0.6 * window.innerHeight + 92 && twoInView) {
-			setTwoInView(false);
-		} else if (window.scrollY >= 0.6 * window.innerHeight + 92 && !twoInView) {
-			setTwoInView(true);
-		}
-
-		if (window.scrollY < 0.6 * window.innerHeight + 184 && threeInView) {
-			setThreeInView(false);
-		} else if (
-			window.scrollY >= 0.6 * window.innerHeight + 184 &&
-			!threeInView
-		) {
-			setThreeInView(true);
-		}
-	};
-
 	return (
 		<Wrapper>
 			<Headline>Who am I?</Headline>
@@ -89,9 +49,7 @@ export const AboutMe = () => {
 				clicked={clickedOne}
 				onClick={() => {
 					setClickedOne(!clickedOne);
-					console.log("clicked");
-				}}
-				inView={oneInView}>
+				}}>
 				<p>I am a passionate Frontend developer with a clear love for React.</p>
 				<p>
 					I love creating components, or entire websites utilizing SCSS or
@@ -112,8 +70,7 @@ export const AboutMe = () => {
 				clicked={clickedTwo}
 				onClick={() => {
 					setClickedTwo(!clickedTwo);
-				}}
-				inView={twoInView}>
+				}}>
 				{/* Would like to add more information about my bouldering here. Maybe link to another website once I have one. */}
 				<p>
 					After work, my heart primarily beats for climbing, or more
@@ -124,8 +81,7 @@ export const AboutMe = () => {
 			<Category
 				title="Consultant at Aclue"
 				onClick={() => setClickedThree(!clickedThree)}
-				clicked={clickedThree}
-				inView={threeInView}>
+				clicked={clickedThree}>
 				<p>
 					I am currently employed at Aclue, working 40 hours each week as a
 					Frontend consultant. Since my start on the 01.03.2022, I have been
