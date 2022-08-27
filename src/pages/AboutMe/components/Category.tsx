@@ -138,6 +138,7 @@ export const Category = (props: CategoryProps) => {
 	const categoryRef = useRef(null);
 	const isInView: boolean = useInView(categoryRef, {
 		margin: "0px 100px -100px 0px",
+		once: true,
 	});
 
 	return (

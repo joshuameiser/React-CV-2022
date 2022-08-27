@@ -8,5 +8,8 @@
 	--primaryColor: purple;
 	--secondaryColor: royalblue;
 	--primaryColor-rgb: #{hexToRGB(purple)};
+	--secondaryColor-rgb: #{hexToRGB(royalblue)};
 	--contrastColor: #f0f0f0;
+	--primaryHover: rgba(var(--primaryColor-rgb), 0.3);
+	--secondaryHover: rgba(var(--secondaryColor-rgb), 0.3);
 }
