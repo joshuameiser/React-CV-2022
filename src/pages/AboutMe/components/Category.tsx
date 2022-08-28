@@ -88,6 +88,7 @@ const Description = styled(motion.p)<{ inView: boolean }>`
 
 const TextSection = styled(motion.div)<{}>`
 	max-width: 600px;
+	height: 0;
 	color: white;
 	font-size: 1.5rem;
 	padding: 2rem;

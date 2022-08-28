@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import image from "../../data/MyImage.png";
+import content from "../../data/Content.json";
 
 const Text = styled.p`
 	font-size: 8rem;
@@ -85,8 +86,8 @@ export const FrontPage = () => {
 		<>
 			<Wrapper>
 				<TextWrapper>
-					<Text>JOSHUA</Text>
-					<Text>MEISER</Text>
+					<Text>{content.name.firstName.toUpperCase()}</Text>
+					<Text>{content.name.lastName.toUpperCase()}</Text>
 				</TextWrapper>
 				<Image src={image} />
 			</Wrapper>
