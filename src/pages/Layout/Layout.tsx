@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { FrontPage } from "../FrontPage/FrontPage";
 import AboutMe from "../AboutMe/AboutMe";
 import MyProjects from "../MyProjects/MyProjects";
+import { WorkingExperience } from "../WorkingExperience/WorkingExperience";
 
 export const themes = ["dark-mode", "green-inferno", "light-mode"];
 
@@ -48,6 +49,7 @@ export const Layout = () => {
 				<FrontPage />
 				<AboutMe />
 				<MyProjects />
+				<WorkingExperience />
 			</Content>
 		</LayoutWrapper>
 	);
