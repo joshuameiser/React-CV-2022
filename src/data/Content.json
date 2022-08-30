@@ -33,5 +33,58 @@
 			"websiteLink": "https://dorfentwicklung.regionalplan-uvp.de/",
 			"sourceCodeLink": ""
 		}
+	],
+	"WorkingExperience": [
+		{
+			"company": "Aclue GmbH",
+			"position": "Frontend Consultant",
+			"timeframe": "01.03.2022 - Ongoing",
+			"responsibilities": [
+				"Component creation based on MUI",
+				"Maintanance on a design system for OTTO",
+				"Component documentation with Storybook",
+				"Storybook customization and setup",
+				"Support for questions regarding the design system"
+			]
+		},
+		{
+			"company": "FarmAct GmbH",
+			"position": "Fulltime Intern Frontend",
+			"timeframe": "01.10.2021 - 31.01.2022",
+			"responsibilities": [
+				"Development with React, Typescript, Firebase and Ionic"
+			]
+		},
+		{
+			"company": "Regionalplan & UVP",
+			"position": "Working Student Frontend",
+			"timeframe": "01.03.2021 - 01.10.2021",
+			"responsibilities": [
+				"Creation of the website https://dorfentwicklung.regionalplan-uvp.de",
+				"Management of the page and continuous updates",
+				"Integration with Netlify CMS to enable their team in making independant content updates"
+			]
+		},
+		{
+			"company": "JaZuYoga",
+			"position": "5hrs/week Support",
+			"timeframe": "01.01.2019 - 01.02.2021",
+			"responsibilities": [
+				"Creation of image templates for Instagram",
+				"Research",
+				"Video editing with Premiere Pro",
+				"Aiding of the transformation of the Yoga center to remote during Corona times"
+			]
+		},
+		{
+			"company": "SAP",
+			"position": "Working Student",
+			"timeframe": "31.07.2017 - 28.02.2018",
+			"responsibilities": [
+				"Creation of infographics",
+				"Graphic enhancement of MS PowerPoint slides",
+				"Creation of Stencils and Templates in Sketch"
+			]
+		}
 	]
 }

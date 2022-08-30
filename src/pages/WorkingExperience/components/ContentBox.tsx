@@ -1,26 +1,31 @@
+import { useState } from "react";
 import styled from "styled-components";
+import content from "../../../data/Content.json";
+import { Responsibility } from "./Responsibility";
 
 const Wrapper = styled.div`
-	height: 100px;
+	height: 200px;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
+	padding: 0 64px;
 	width: 100vw;
 `;
 
 const LoadingBar = styled.div`
 	height: 100%;
-	width: 4px;
+	width: 6px;
 	position: relative;
 	border-radius: 8px;
 	background-color: var(--primaryHover);
 `;
 
-const ActiveBar = styled.div<{ projects: number; activeNumber: number }>`
+const ActiveBar = styled.div<{ projectCount: number; activeNumber: number }>`
 	transition: 0.5s ease-in-out;
-	height: ${(p) => 100 / p.projects}%;
+	height: ${(p) => 100 / p.projectCount}%;
 	width: 100%;
+	border-radius: 8px;
 	position: absolute;
-	top: ${(p) => 100 / (p.projects / p.activeNumber)}%;
+	top: ${(p) => 100 / (p.projectCount / p.activeNumber)}%;
 	background-color: var(--primaryColor);
 `;
 
@@ -29,28 +34,72 @@ const Workplaces = styled.div`
 	width: auto;
 `;
 
-const Workplace = styled.p<{ projects: number }>`
-	height: ${(p) => 100 / p.projects}%;
+const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
+	height: ${(p) => 100 / p.projectCount}%;
 	display: flex;
 	align-items: center;
 	padding-left: 16px;
-	color: white;
+	transition: color 0.3s ease-in-out;
+	color: ${(p) =>
+		p.isActive ? "var(--primaryColor)" : "var(--contrastColor)"};
 	margin: 0;
+	font-size: 1.5rem;
+`;
+
+const DescriptionWrapper = styled.div`
+	height: 100%;
+	padding-left: 64px;
+	font-size: 1.5rem;
+	color: var(--contrastColor);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	p {
+		margin: 0;
+	}
+`;
+
+const TimeFrame = styled.p`
+	font-size: 1.125rem;
+	padding-bottom: 16px;
 `;
 
 export const ContentBox = () => {
+	const workingExperience = content.WorkingExperience;
+	const projectCount = workingExperience.length;
+
+	const [activeNumber, setActiveNumber] = useState(0);
+
 	return (
 		<Wrapper>
 			<LoadingBar>
 				{/* Active number starts at 0 */}
-				<ActiveBar projects={4} activeNumber={3} />
+				<ActiveBar projectCount={projectCount} activeNumber={activeNumber} />
 			</LoadingBar>
 			<Workplaces>
-				<Workplace projects={4}>SAP</Workplace>
-				<Workplace projects={4}>UVP Stelzer</Workplace>
-				<Workplace projects={4}>FarmAct</Workplace>
-				<Workplace projects={4}>Aclue</Workplace>
+				{workingExperience.map((experience, index) => {
+					return (
+						<Workplace
+							projectCount={projectCount}
+							isActive={activeNumber === index}
+							onClick={() => {
+								setActiveNumber(index);
+							}}>
+							{experience.company}
+						</Workplace>
+					);
+				})}
 			</Workplaces>
+			<DescriptionWrapper>
+				<p>{workingExperience[activeNumber].position.toUpperCase()}</p>
+				<TimeFrame>{workingExperience[activeNumber].timeframe}</TimeFrame>
+				{workingExperience[activeNumber].responsibilities?.map(
+					(responsibility) => {
+						return <Responsibility>{responsibility}</Responsibility>;
+					}
+				)}
+			</DescriptionWrapper>
 		</Wrapper>
 	);
 };
