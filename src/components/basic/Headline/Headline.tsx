@@ -9,8 +9,11 @@ const HeadlineComponent = styled(motion.h1)<{
 	font-size: 6rem;
 	color: ${(p) => p.color};
 	display: flex;
+	text-align: ${(p) => (p.position === "right" ? "right" : "left")};
 	justify-content: ${(p) => (p.position === "right" ? "right" : "left")};
 	margin-right: 16rem;
+	line-height: 1.25;
+	padding-bottom: 32px;
 	overflow: scrollable;
 	${(p) => (p.position === "right" ? "margin-right:4rem" : "margin-left:4rem")};
 	transition: 0.6s ease-in-out;
@@ -21,6 +24,17 @@ const HeadlineComponent = styled(motion.h1)<{
 
 	@media (max-width: 720px) {
 		font-size: 4rem;
+	}
+
+	@media (max-width: 600px) {
+		font-size: 4rem;
+		margin: 0 16px;
+	}
+
+	@media (max-width: 400px) {
+		font-size: 3rem;
+		padding: 8px;
+		margin: 0 16px;
 	}
 `;
 

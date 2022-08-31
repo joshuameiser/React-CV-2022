@@ -62,7 +62,7 @@ const Description = styled(motion.p)<{ inView: boolean }>`
 	color: white;
 	display: flex;
 	justify-content: left;
-	margin: 16px 0;
+	margin: 8px 0;
 	margin-left: 4rem;
 	transition: color 0.3s ease-in-out;
 	align-items: center;
