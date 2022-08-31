@@ -2,13 +2,17 @@ import { motion, useInView } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-const HeadlineComponent = styled(motion.h1)`
-	width: 100%;
+const HeadlineComponent = styled(motion.h1)<{
+	position: "left" | "right" | undefined;
+	color: string;
+}>`
 	font-size: 6rem;
 	color: ${(p) => p.color};
 	display: flex;
-	justify-content: left;
-	margin-left: 4rem;
+	justify-content: ${(p) => (p.position === "right" ? "right" : "left")};
+	margin-right: 16rem;
+	overflow: scrollable;
+	${(p) => (p.position === "right" ? "margin-right:4rem" : "margin-left:4rem")};
 	transition: 0.6s ease-in-out;
 
 	@media (max-width: 920px) {
@@ -22,6 +26,7 @@ const HeadlineComponent = styled(motion.h1)`
 
 export interface HeadlineProps {
 	children: React.ReactNode;
+	position?: "left" | "right";
 }
 
 export const Headline = (props: HeadlineProps) => {
@@ -36,7 +41,10 @@ export const Headline = (props: HeadlineProps) => {
 	}, [isInView]);
 
 	return (
-		<HeadlineComponent color={color} ref={headlineRef}>
+		<HeadlineComponent
+			color={color}
+			ref={headlineRef}
+			position={props.position}>
 			{props.children}
 		</HeadlineComponent>
 	);

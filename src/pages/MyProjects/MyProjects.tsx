@@ -6,7 +6,7 @@ import content from "../../data/Content.json";
 
 const Wrapper = styled.div`
 	background-color: var(--backgroundColor);
-	padding-bottom: 100px;
+	padding-bottom: 300px;
 	z-index: 1;
 `;
 

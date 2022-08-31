@@ -11,7 +11,9 @@ const Wrapper = styled.div`
 	align-items: center;
 	gap: 16px;
 	font-size: 1.125rem;
-	width: auto;
+	// TODO: Add media queries here
+	width: 300px;
+	padding: 0.5rem 0;
 
 	svg {
 		font-size: inherit;
@@ -20,6 +22,8 @@ const Wrapper = styled.div`
 
 	p {
 		font-size: 1.25rem;
+		text-align: left;
+		line-height: 1.25;
 	}
 `;
 

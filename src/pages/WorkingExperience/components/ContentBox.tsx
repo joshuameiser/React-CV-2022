@@ -6,9 +6,8 @@ import { Responsibility } from "./Responsibility";
 const Wrapper = styled.div`
 	height: 200px;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: flex-end;
 	padding: 0 64px;
-	width: 100vw;
 `;
 
 const LoadingBar = styled.div`
@@ -38,17 +37,19 @@ const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
 	height: ${(p) => 100 / p.projectCount}%;
 	display: flex;
 	align-items: center;
-	padding-left: 16px;
+	justify-content: flex-end;
+	padding-right: 16px;
 	transition: color 0.3s ease-in-out;
 	color: ${(p) =>
 		p.isActive ? "var(--primaryColor)" : "var(--contrastColor)"};
 	margin: 0;
+	cursor: pointer;
 	font-size: 1.5rem;
 `;
 
 const DescriptionWrapper = styled.div`
 	height: 100%;
-	padding-left: 64px;
+	padding-right: 64px;
 	font-size: 1.5rem;
 	color: var(--contrastColor);
 	display: flex;
@@ -73,10 +74,15 @@ export const ContentBox = () => {
 
 	return (
 		<Wrapper>
-			<LoadingBar>
-				{/* Active number starts at 0 */}
-				<ActiveBar projectCount={projectCount} activeNumber={activeNumber} />
-			</LoadingBar>
+			<DescriptionWrapper>
+				<p>{workingExperience[activeNumber].position.toUpperCase()}</p>
+				<TimeFrame>{workingExperience[activeNumber].timeframe}</TimeFrame>
+				{workingExperience[activeNumber].responsibilities?.map(
+					(responsibility) => {
+						return <Responsibility>{responsibility}</Responsibility>;
+					}
+				)}
+			</DescriptionWrapper>
 			<Workplaces>
 				{workingExperience.map((experience, index) => {
 					return (
@@ -91,15 +97,10 @@ export const ContentBox = () => {
 					);
 				})}
 			</Workplaces>
-			<DescriptionWrapper>
-				<p>{workingExperience[activeNumber].position.toUpperCase()}</p>
-				<TimeFrame>{workingExperience[activeNumber].timeframe}</TimeFrame>
-				{workingExperience[activeNumber].responsibilities?.map(
-					(responsibility) => {
-						return <Responsibility>{responsibility}</Responsibility>;
-					}
-				)}
-			</DescriptionWrapper>
+			<LoadingBar>
+				{/* Active number starts at 0 */}
+				<ActiveBar projectCount={projectCount} activeNumber={activeNumber} />
+			</LoadingBar>
 		</Wrapper>
 	);
 };

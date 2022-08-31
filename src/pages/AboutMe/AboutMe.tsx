@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 	z-index: 1;
 	overflow: hidden;
 	background: var(--backgroundColor);
-	padding-bottom: 100px;
+	padding-bottom: 300px;
 `;
 
 const IconWrapper = styled(motion.div)`
