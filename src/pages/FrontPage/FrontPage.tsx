@@ -14,6 +14,7 @@ const Text = styled.p`
 const TextWrapper = styled.div`
 	z-index: 1;
 	display: flex;
+	position: absolute;
 	flex-direction: column;
 	justify-content: center;
 	padding-bottom: 5rem;
@@ -50,8 +51,8 @@ const TextWrapper = styled.div`
 `;
 
 const Image = styled.img`
-	max-height: 94%;
-	position: fixed;
+	height: 94%;
+	position: sticky;
 	bottom: 0px;
 	z-index: 0;
 `;

@@ -156,10 +156,21 @@ export const Category = (props: CategoryProps) => {
 			<TextSection
 				animate={
 					props.clicked
-						? { height: "auto", border: "2px solid var(--primaryColor)" }
-						: { height: 0, padding: 0, border: "none" }
-				}>
-				{props.children}
+						? {
+								height: "auto",
+								border: "2px solid var(--primaryColor)",
+								color: "white",
+						  }
+						: { height: 0, border: "0px", color: "black", padding: "0 32px" }
+				}
+				transition={{ duration: 0.3 }}>
+				<motion.p
+					animate={
+						props.clicked ? { opacity: [0, 0, 1] } : { opacity: [0, 0, 0] }
+					}
+					transition={{ duration: 0.3, times: [0, 0.999, 1] }}>
+					{props.children}
+				</motion.p>
 			</TextSection>
 		</CategoryWrapper>
 	);
