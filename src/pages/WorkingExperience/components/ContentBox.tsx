@@ -4,14 +4,25 @@ import content from "../../../data/Content.json";
 import { Responsibility } from "./Responsibility";
 
 const Wrapper = styled.div`
-	height: 200px;
+	// 2.5rem because of 1.5rem font-size with line-height 1 and 1rem gap
+	height: calc(2.5rem * ${content.WorkingExperience.length});
 	display: flex;
+	position: relative;
 	justify-content: flex-end;
 	padding: 0 64px;
+
+	@media (max-width: 700px) {
+		padding: 0 32px;
+	}
+
+	@media (max-width: 640px) {
+		padding: 0 16px;
+	}
 `;
 
 const LoadingBar = styled.div`
-	height: 100%;
+	height: inherit;
+	min-height: inherit;
 	width: 6px;
 	position: relative;
 	border-radius: 8px;
@@ -30,6 +41,13 @@ const ActiveBar = styled.div<{ projectCount: number; activeNumber: number }>`
 
 const Workplaces = styled.div`
 	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	@media (max-width: 620px) {
+		gap: 0;
+	}
 	width: auto;
 `;
 
@@ -45,12 +63,24 @@ const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
 	margin: 0;
 	cursor: pointer;
 	font-size: 1.5rem;
+	line-height: 1;
+	@media (max-width: 620px) {
+		font-size: 1.25rem;
+		line-height: 1.5rem;
+	}
+	text-align: right;
 `;
 
 const DescriptionWrapper = styled.div`
 	height: 100%;
 	padding-right: 64px;
-	font-size: 1.5rem;
+	@media (max-width: 760px) {
+		padding-right: 32px;
+	}
+	@media (max-width: 400px) {
+		padding-right: 16px;
+	}
+
 	color: var(--contrastColor);
 	display: flex;
 	flex-direction: column;
@@ -58,6 +88,13 @@ const DescriptionWrapper = styled.div`
 
 	p {
 		margin: 0;
+	}
+`;
+
+const DescriptionHeader = styled.p`
+	font-size: 1.5rem;
+	@media (max-width: 640px) {
+		font-size: 1.25rem;
 	}
 `;
 
@@ -75,7 +112,9 @@ export const ContentBox = () => {
 	return (
 		<Wrapper>
 			<DescriptionWrapper>
-				<p>{workingExperience[activeNumber].position.toUpperCase()}</p>
+				<DescriptionHeader>
+					{workingExperience[activeNumber].position.toUpperCase()}
+				</DescriptionHeader>
 				<TimeFrame>{workingExperience[activeNumber].timeframe}</TimeFrame>
 				{workingExperience[activeNumber].responsibilities?.map(
 					(responsibility) => {

@@ -11,8 +11,14 @@ const Wrapper = styled.div`
 	align-items: center;
 	gap: 16px;
 	font-size: 1.125rem;
-	// TODO: Add media queries here
 	width: 300px;
+	@media (max-width: 720px) {
+		width: 250px;
+	}
+	@media (max-width: 660px) {
+		width: 200px;
+		font-size: 1rem;
+	}
 	padding: 0.5rem 0;
 
 	svg {
@@ -21,9 +27,16 @@ const Wrapper = styled.div`
 	}
 
 	p {
+		width: calc(100% - 32px);
+		overflow-wrap: break-word;
 		font-size: 1.25rem;
 		text-align: left;
 		line-height: 1.25;
+
+		@media (max-width: 660px) {
+			font-size: 1.125rem;
+			line-height: 1.125;
+		}
 	}
 `;
 
