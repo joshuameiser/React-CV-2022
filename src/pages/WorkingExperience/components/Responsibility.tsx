@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 		width: calc(100% - 32px);
 		overflow-wrap: break-word;
 		font-size: 1.25rem;
-		text-align: left;
+		text-align: right;
 		line-height: 1.25;
 
 		@media (max-width: 660px) {
@@ -43,8 +43,8 @@ const Wrapper = styled.div`
 export const Responsibility = (props: ResponsibilityProps) => {
 	return (
 		<Wrapper>
-			<FontAwesomeIcon icon={faCircleCheck} />
 			<p>{props.children}</p>
+			<FontAwesomeIcon icon={faCircleCheck} />
 		</Wrapper>
 	);
 };

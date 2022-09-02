@@ -56,33 +56,34 @@ const SVG = styled(motion.svg)<{ inView: boolean; clicked: boolean }>`
 `;
 
 const Description = styled(motion.p)<{ inView: boolean }>`
-	width: 40%;
+	width: 200px;
 	height: 60px;
-	font-size: 3rem;
+	font-size: 1.75rem;
 	color: white;
 	display: flex;
 	justify-content: left;
-	margin: 8px 0;
-	margin-left: 4rem;
+	margin: 0 0 0 16px;
 	transition: color 0.3s ease-in-out;
 	align-items: center;
 	color: inherit;
 	user-select: none;
 
-	@media (max-width: 920px) {
+	@media (min-width: 480px) {
+		font-size: 1.75rem;
+	}
+
+	@media (min-width: 600px) {
+		margin: 8px 0px 8px 16px;
+		margin-left: 4rem;
+	}
+
+	@media (min-width: 720px) {
 		font-size: 2.5rem;
+		width: 40%;
 	}
 
-	@media (max-width: 720px) {
-		width: 50%;
-	}
-
-	@media (max-width: 580px) {
-		width: 60%;
-	}
-
-	@media (max-width: 480px) {
-		font-size: 2rem;
+	@media (min-width: 920px) {
+		font-size: 3rem;
 	}
 `;
 
