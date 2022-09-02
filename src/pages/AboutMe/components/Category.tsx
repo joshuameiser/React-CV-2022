@@ -34,8 +34,8 @@ const CategoryWrapper = styled.div`
 `;
 
 const SVG = styled(motion.svg)<{ inView: boolean; clicked: boolean }>`
-	height: 20px;
-	width: 20px;
+	height: 16px;
+	width: 16px;
 	cursor: pointer;
 	fill: inherit;
 	overflow: visible;
@@ -44,14 +44,14 @@ const SVG = styled(motion.svg)<{ inView: boolean; clicked: boolean }>`
 		cursor: pointer;
 	}
 
-	@media (max-width: 920px) {
+	@media (min-width: 720px) {
 		height: 18px;
 		width: 18px;
 	}
 
-	@media (max-width: 720px) {
-		height: 16px;
-		width: 16px;
+	@media (min-width: 920px) {
+		height: 20px;
+		width: 20px;
 	}
 `;
 
@@ -91,13 +91,24 @@ const TextSection = styled(motion.div)<{}>`
 	height: 0;
 	color: white;
 	font-size: 1.5rem;
-	padding: 2rem;
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	overflow: hidden;
-	margin: 0 4rem;
+	margin: 0 1rem;
 	border-radius: 16px;
+
+	@media (min-width: 500px) {
+		margin: 0 2rem;
+	}
+	@media (min-width: 660px) {
+		margin: 0 3rem;
+		padding: 2rem;
+	}
+	@media (min-width: 800px) {
+		margin: 0 4rem;
+	}
 
 	p {
 		padding: 0;

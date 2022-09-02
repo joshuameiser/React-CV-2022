@@ -52,7 +52,7 @@ const TextWrapper = styled.div`
 
 const Image = styled.img`
 	height: 94%;
-	position: sticky;
+	// position: sticky;
 	bottom: 0px;
 	z-index: 0;
 `;
@@ -68,7 +68,7 @@ const Wrapper = styled.div`
 	position: fixed;
 	z-index: 0;
 	top: 0px;
-	left: 10%;
+	// left: 10%;
 	justify-content: flex-end;
 	align-items: center;
 	width: inherit;

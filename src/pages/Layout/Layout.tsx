@@ -16,15 +16,19 @@ export const themes = ["dark-mode", "green-inferno", "light-mode"];
 const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: calc(100vw - 10vw);
-	overflow-x: hidden;
+	// width: calc(100vw - 10vw);
+	width: 100vw;
+	// overflow-x: hidden;
+	position: relative;
 `;
 
 const LayoutWrapper = styled.div`
 	background-color: var(--secondaryBackgroundColor);
 	min-height: 100vh;
 	width: 100vw;
+	position: relative;
 	display: flex;
+	flex-direction: column;
 `;
 
 export const Layout = () => {
@@ -45,7 +49,7 @@ export const Layout = () => {
 	return (
 		<LayoutWrapper data-theme={theme}>
 			<DarkModeToggle theme={theme} setTheme={setTheme} />
-			<Menu />
+			{/* <Menu /> */}=
 			<Content>
 				<FrontPage />
 				<AboutMe />
