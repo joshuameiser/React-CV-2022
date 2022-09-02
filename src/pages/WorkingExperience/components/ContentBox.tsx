@@ -11,14 +11,14 @@ const Wrapper = styled.div`
 	gap: 32px;
 	position: relative;
 	// justify-content: flex-end;
-	padding: 0 16px;
+	// padding: 0 16px;
 
 	@media (min-width: 640px) {
 		padding: 0 32px;
 		gap: 0;
-		// flex-direction:row;
-		// justify-content:flex-end;
-		// height: calc(2.5rem * ${content.WorkingExperience.length});
+		flex-direction: row;
+		justify-content: flex-end;
+		height: calc(2.5rem * ${content.WorkingExperience.length});
 	}
 
 	@media (min-width: 700px) {
@@ -34,9 +34,9 @@ const LoadingBar = styled.div<{ projectCount: number; activeNumber: number }>`
 	background-color: var(--primaryHover);
 
 	@media (min-width: 640px) {
-		// width:6px;
-		// height:inherit;
-		// min-height:inherit;
+		width: 6px;
+		height: inherit;
+		min-height: inherit;
 	}
 `;
 
@@ -49,10 +49,10 @@ const ActiveBar = styled.div<{ projectCount: number; activeNumber: number }>`
 	left: ${(p) => 140 * p.activeNumber}px;
 	background-color: var(--primaryColor);
 	@media (min-width: 640px) {
-		// width:100%;
-		// height: ${(p) => 100 / p.projectCount}%;
-		// top: ${(p) => 100 / (p.projectCount / p.activeNumber)}%;
-		// left: 0;
+		width: 100%;
+		height: ${(p) => 100 / p.projectCount}%;
+		top: ${(p) => 100 / (p.projectCount / p.activeNumber)}%;
+		left: 0;
 	}
 `;
 
@@ -67,8 +67,8 @@ const Workplaces = styled.div`
 	}
 
 	@media (min-width: 640px) {
-		// flex-direction:column;
-		// justify-content: center;
+		flex-direction: column;
+		justify-content: center;
 	}
 `;
 
@@ -94,24 +94,24 @@ const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
 	@media (min-width: 640px) {
 		font-size: 1.5rem;
 		line-height: 1;
-		// height: ${(p) => 100 / p.projectCount}%;
-		// text-align: right;
-		// width: auto;
-		// justify-content: flex-end;
+		height: ${(p) => 100 / p.projectCount}%;
+		text-align: right;
+		width: auto;
+		justify-content: flex-end;
 	}
 `;
 
 const DescriptionWrapper = styled.div`
 	height: 100%;
-	padding-right: 16px;
+	margin-right: 16px;
 	@media (min-width: 400px) {
-		padding-right: 32px;
+		margin-right: 32px;
 	}
 	@media (min-width: 640px) {
 		align-items: flex-start;
 	}
 	@media (min-width: 760px) {
-		padding-right: 64px;
+		margin-right: 64px;
 	}
 
 	color: var(--contrastColor);
@@ -142,7 +142,9 @@ const SelectionWrapper = styled.div`
 	overflow-x: scroll;
 	max-width: 100vw;
 	@media (min-width: 640px) {
-		// flex-direction:row;
+		flex-direction: row;
+		margin-right: 64px;
+		gap: 16px;
 	}
 
 	::-webkit-scrollbar {
