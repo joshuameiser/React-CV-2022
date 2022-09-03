@@ -10,13 +10,13 @@ const Wrapper = styled.div`
 	flex-direction: column-reverse;
 	gap: 32px;
 	position: relative;
+	height: auto;
 
 	@media (min-width: 640px) {
 		padding: 0 32px;
 		gap: 0;
 		flex-direction: row;
 		justify-content: flex-end;
-		height: calc(2.5rem * ${content.WorkingExperience.length});
 	}
 `;
 
@@ -136,6 +136,7 @@ const SelectionWrapper = styled.div`
 	overflow-x: scroll;
 	max-width: 100vw;
 	@media (min-width: 640px) {
+		height: calc(2.5rem * ${content.WorkingExperience.length});
 		flex-direction: row;
 		margin-right: 64px;
 		gap: 16px;
