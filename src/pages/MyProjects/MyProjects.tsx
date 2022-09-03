@@ -3,12 +3,7 @@ import { motion } from "framer-motion";
 import Project from "./components/Project/Project";
 import Headline from "../../components/basic/Headline/Headline";
 import content from "../../data/Content.json";
-
-const Wrapper = styled.div`
-	background-color: var(--backgroundColor);
-	padding-bottom: 300px;
-	z-index: 1;
-`;
+import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
 
 const ProjectsWrapper = styled.div`
 	display: flex;
@@ -20,7 +15,7 @@ const ProjectsWrapper = styled.div`
 
 export const MyProjects = () => {
 	return (
-		<Wrapper>
+		<PageWrapper>
 			<Headline>My Projects</Headline>
 			<ProjectsWrapper>
 				{content.Projects.map((project, index) => {
@@ -34,7 +29,7 @@ export const MyProjects = () => {
 					);
 				})}
 			</ProjectsWrapper>
-		</Wrapper>
+		</PageWrapper>
 	);
 };
 

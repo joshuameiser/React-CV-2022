@@ -3,9 +3,9 @@
 }
 
 [data-theme="light-mode"] {
-	--backgroundColor: rgb(59, 59, 59);
+	--backgroundColor: rgb(255, 255, 255);
 	// --secondaryBackgroundColor: #d2d2d2;
-	--secondaryBackgroundColor: rgb(59, 59, 59);
+	--secondaryBackgroundColor: rgb(0, 7, 150);
 	--primaryColor: rgb(15, 0, 181);
 	--primaryColor-rgb: #{hexToRGB(purple)};
 	--contrastColor: black;

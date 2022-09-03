@@ -86,5 +86,34 @@
 				"Creation of Stencils and Templates in Sketch"
 			]
 		}
+	],
+	"Education": [
+		{
+			"name": "School Certificate : Abitur",
+			"location": "Illtal-Gymnasium Illingen",
+			"timeframe": "August 2007 - June 2015"
+		},
+		{
+			"name": "EF Language School",
+			"location": "San Francisco Down Town, USA (EF-School)",
+			"timeframe": "September 2015 - July 2016"
+		},
+		{
+			"name": "Bachelor of Science",
+			"location": "International Media & Computing (HTW-Berlin)",
+			"timeframe": "April 2018 - April 2022"
+		}
+	],
+	"ExperienceAbroad": [
+		{
+			"name": "Cambridge Exam (C1)",
+			"location": "San Francisco",
+			"timeframe": "May (CAE2) 2016"
+		},
+		{
+			"name": "Advanced Diploma in Online Marketing",
+			"location": "San Francisco Down Town, USA (EF-School)",
+			"timeframe": "September 2015 - July 2016"
+		}
 	]
 }

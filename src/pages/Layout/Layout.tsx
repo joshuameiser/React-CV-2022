@@ -10,6 +10,8 @@ import AboutMe from "../AboutMe/AboutMe";
 import MyProjects from "../MyProjects/MyProjects";
 import { WorkingExperience } from "../WorkingExperience/WorkingExperience";
 import { HardSkills } from "../HardSkills/HardSkills";
+import { ExperienceAbroad } from "../ExperienceAbroad/ExperienceAbroad";
+import { Education } from "../Education/Education";
 
 export const themes = ["dark-mode", "green-inferno", "light-mode"];
 
@@ -54,6 +56,8 @@ export const Layout = () => {
 				<FrontPage />
 				<AboutMe />
 				<WorkingExperience />
+				<ExperienceAbroad />
+				<Education />
 				<MyProjects />
 				<HardSkills />
 			</Content>

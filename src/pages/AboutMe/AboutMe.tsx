@@ -4,15 +4,9 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import styled from "styled-components";
 import Headline from "../../components/basic/Headline/Headline";
+import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
 import content from "../../data/Content.json";
 import { Category } from "./components/Category";
-
-const Wrapper = styled.div`
-	z-index: 1;
-	overflow: hidden;
-	background: var(--backgroundColor);
-	padding-bottom: 300px;
-`;
 
 const IconWrapper = styled(motion.div)`
 	height: 20px;
@@ -26,7 +20,7 @@ export const AboutMe = () => {
 	);
 
 	return (
-		<Wrapper>
+		<PageWrapper>
 			<Headline>Who am I?</Headline>
 			{content.whoAmI.map((element, index) => {
 				return (
@@ -54,7 +48,7 @@ export const AboutMe = () => {
 					</Category>
 				);
 			})}
-		</Wrapper>
+		</PageWrapper>
 	);
 };
 

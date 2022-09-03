@@ -1,19 +1,13 @@
 import Headline from "../../components/basic/Headline/Headline";
 import styled from "styled-components";
 import { ContentBox } from "./components/ContentBox";
-
-const Wrapper = styled.div`
-	z-index: 1;
-	overflow: hidden;
-	background: var(--backgroundColor);
-	padding-bottom: 300px;
-`;
+import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
 
 export const WorkingExperience = () => {
 	return (
-		<Wrapper>
+		<PageWrapper>
 			<Headline position="right">Working Experience</Headline>
 			<ContentBox />
-		</Wrapper>
+		</PageWrapper>
 	);
 };

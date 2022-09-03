@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import styled from "styled-components";
 import content from "../../../data/Content.json";
 import { Responsibility } from "./Responsibility";
@@ -10,8 +10,6 @@ const Wrapper = styled.div`
 	flex-direction: column-reverse;
 	gap: 32px;
 	position: relative;
-	// justify-content: flex-end;
-	// padding: 0 16px;
 
 	@media (min-width: 640px) {
 		padding: 0 32px;
@@ -19,10 +17,6 @@ const Wrapper = styled.div`
 		flex-direction: row;
 		justify-content: flex-end;
 		height: calc(2.5rem * ${content.WorkingExperience.length});
-	}
-
-	@media (min-width: 700px) {
-		padding: 0 64px;
 	}
 `;
 
@@ -164,6 +158,9 @@ export const ContentBox = () => {
 
 	const [activeNumber, setActiveNumber] = useState(0);
 
+	const activeResponsibility = useRef<HTMLParagraphElement>(null);
+	const selectionWrapper = useRef<HTMLDivElement>(null);
+
 	return (
 		<Wrapper>
 			<DescriptionWrapper>
@@ -177,15 +174,22 @@ export const ContentBox = () => {
 					}
 				)}
 			</DescriptionWrapper>
-			<SelectionWrapper>
+			<SelectionWrapper ref={selectionWrapper}>
 				<Workplaces>
 					{workingExperience.map((experience, index) => {
 						return (
 							<Workplace
 								projectCount={projectCount}
 								isActive={activeNumber === index}
+								ref={activeNumber === index ? activeResponsibility : undefined}
 								onClick={() => {
 									setActiveNumber(index);
+									selectionWrapper?.current?.scrollTo(
+										activeResponsibility?.current?.getBoundingClientRect()
+											.left ?? 0,
+										0
+									);
+									// activeResponsibility.current.scrollIntoView(true);
 								}}>
 								{experience.company}
 							</Workplace>
