@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from "react";
+import { createRef, ReactNode, useRef, useState } from "react";
 import styled from "styled-components";
 import content from "../../../data/Content.json";
 import { Responsibility } from "./Responsibility";
@@ -169,8 +169,7 @@ export const ContentBox = () => {
 
 	const [activeNumber, setActiveNumber] = useState(0);
 
-	const activeResponsibility = useRef<HTMLParagraphElement>(null);
-	const selectionWrapper = useRef<HTMLDivElement>(null);
+	const responsibilityRefs = useRef<HTMLParagraphElement[]>([]);
 
 	return (
 		<Wrapper>
@@ -185,22 +184,25 @@ export const ContentBox = () => {
 					}
 				)}
 			</DescriptionWrapper>
-			<SelectionWrapper ref={selectionWrapper}>
+			<SelectionWrapper>
 				<Workplaces>
 					{workingExperience.map((experience, index) => {
 						return (
 							<Workplace
 								projectCount={projectCount}
 								isActive={activeNumber === index}
-								ref={activeNumber === index ? activeResponsibility : undefined}
+								ref={(ref: HTMLParagraphElement) =>
+									responsibilityRefs.current.length < projectCount &&
+									ref !== null &&
+									responsibilityRefs.current.push(ref)
+								}
 								onClick={() => {
 									setActiveNumber(index);
-									selectionWrapper?.current?.scrollTo(
-										activeResponsibility?.current?.getBoundingClientRect()
-											.left ?? 0,
-										0
-									);
-									// activeResponsibility.current.scrollIntoView(true);
+									responsibilityRefs.current[index].scrollIntoView({
+										behavior: "smooth",
+										block: "nearest",
+										inline: "center",
+									});
 								}}>
 								{experience.company}
 							</Workplace>
