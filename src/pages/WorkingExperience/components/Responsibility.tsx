@@ -44,6 +44,10 @@ const Wrapper = styled.div`
 			font-size: 1.25rem;
 			line-height: 1.25;
 		}
+
+		@media (min-width: 1000px) {
+			font-size: 1.375rem;
+		}
 	}
 `;
 

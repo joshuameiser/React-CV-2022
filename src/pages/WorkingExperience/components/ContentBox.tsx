@@ -4,7 +4,6 @@ import content from "../../../data/Content.json";
 import { Responsibility } from "./Responsibility";
 
 const Wrapper = styled.div`
-	// 2.5rem because of 1.5rem font-size with line-height 1 and 1rem gap
 	width: 100vw;
 	display: flex;
 	flex-direction: column-reverse;
@@ -56,9 +55,6 @@ const Workplaces = styled.div`
 	display: flex;
 	gap: 0;
 	width: auto;
-	@media (min-width: 640px) {
-		gap: 16px;
-	}
 
 	@media (min-width: 640px) {
 		flex-direction: column;
@@ -82,16 +78,19 @@ const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
 	min-width: 140px;
 	max-width: 140px;
 
-	@media (min-width: 620px) {
-	}
-
 	@media (min-width: 640px) {
+		overflow: hidden;
 		font-size: 1.5rem;
 		line-height: 1;
 		height: ${(p) => 100 / p.projectCount}%;
 		text-align: right;
 		width: auto;
 		justify-content: flex-end;
+	}
+
+	@media (min-width: 1000px) {
+		font-size: 2rem;
+		max-width: 300px;
 	}
 `;
 
@@ -119,15 +118,21 @@ const DescriptionWrapper = styled.div`
 `;
 
 const DescriptionHeader = styled.p`
-	font-size: 1.5rem;
-	@media (max-width: 640px) {
-		font-size: 1.25rem;
+	font-size: 1.25rem;
+	@media (min-width: 640px) {
+		font-size: 1.5rem;
+	}
+	@media (min-width: 1000px) {
+		font-size: 1.75rem;
 	}
 `;
 
 const TimeFrame = styled.p`
 	font-size: 1.125rem;
 	padding-bottom: 16px;
+	@media (min-width: 1000px) {
+		font-size: 1.25rem;
+	}
 `;
 
 const SelectionWrapper = styled.div`
@@ -136,10 +141,15 @@ const SelectionWrapper = styled.div`
 	overflow-x: scroll;
 	max-width: 100vw;
 	@media (min-width: 640px) {
+		// 2.5rem because of 1.5rem font-size with line-height 1 and 1rem gap
 		height: calc(2.5rem * ${content.WorkingExperience.length});
 		flex-direction: row;
 		margin-right: 64px;
 		gap: 16px;
+	}
+
+	@media (min-height: 1000px) {
+		height: calc(3rem * ${content.WorkingExperience.length});
 	}
 
 	::-webkit-scrollbar {
