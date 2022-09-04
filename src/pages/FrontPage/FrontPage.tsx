@@ -28,21 +28,21 @@ const TextWrapper = styled.div`
 		}
 	}
 
-	@media (min-height: 440px) {
+	@media (min-width: 440px) {
 		${Text} {
 			font-size: 4rem;
 			line-height: 4rem;
 		}
 	}
 
-	@media (min-height: 540px) {
+	@media (min-width: 540px) {
 		${Text} {
 			font-size: 6rem;
 			line-height: 6rem;
 		}
 	}
 
-	@media (min-height: 600px) {
+	@media (min-width: 600px) {
 		padding-bottom: 7rem;
 		${Text} {
 			font-size: 8rem;

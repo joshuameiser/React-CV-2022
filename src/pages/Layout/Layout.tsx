@@ -9,28 +9,26 @@ import { FrontPage } from "../FrontPage/FrontPage";
 import AboutMe from "../AboutMe/AboutMe";
 import MyProjects from "../MyProjects/MyProjects";
 import { WorkingExperience } from "../WorkingExperience/WorkingExperience";
-import { HardSkills } from "../HardSkills/HardSkills";
 import { ExperienceAbroad } from "../ExperienceAbroad/ExperienceAbroad";
 import { Education } from "../Education/Education";
+import { Contact } from "../Contact/Contact";
 
 export const themes = ["dark-mode", "green-inferno", "light-mode"];
 
 const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	// width: calc(100vw - 10vw);
-	width: 100vw;
-	// overflow-x: hidden;
 	position: relative;
 `;
 
 const LayoutWrapper = styled.div`
 	background-color: var(--secondaryBackgroundColor);
 	min-height: 100vh;
-	width: 100vw;
+	max-width: 100vw;
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden;
 `;
 
 export const Layout = () => {
@@ -59,7 +57,7 @@ export const Layout = () => {
 				<ExperienceAbroad />
 				<Education />
 				<MyProjects />
-				<HardSkills />
+				<Contact />
 			</Content>
 		</LayoutWrapper>
 	);

@@ -4,7 +4,6 @@ import content from "../../../data/Content.json";
 import { Responsibility } from "./Responsibility";
 
 const Wrapper = styled.div`
-	width: 100vw;
 	display: flex;
 	flex-direction: column-reverse;
 	gap: 32px;
@@ -63,10 +62,7 @@ const Workplaces = styled.div`
 `;
 
 const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
-	// display: flex;
 	align-items: center;
-	// justify-content: flex-end;
-	// padding-right: 16px;
 	transition: color 0.3s ease-in-out;
 	color: ${(p) =>
 		p.isActive ? "var(--primaryColor)" : "var(--contrastColor)"};
@@ -86,6 +82,9 @@ const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
 		text-align: right;
 		width: auto;
 		justify-content: flex-end;
+		width: auto;
+		min-width: initial;
+		max-width: initial;
 	}
 
 	@media (min-width: 1000px) {
@@ -140,15 +139,17 @@ const SelectionWrapper = styled.div`
 	flex-direction: column;
 	overflow-x: scroll;
 	max-width: 100vw;
+	height: 100%;
 	@media (min-width: 640px) {
 		// 2.5rem because of 1.5rem font-size with line-height 1 and 1rem gap
 		height: calc(2.5rem * ${content.WorkingExperience.length});
 		flex-direction: row;
 		margin-right: 64px;
 		gap: 16px;
+		width: auto;
 	}
 
-	@media (min-height: 1000px) {
+	@media (min-width: 1000px) {
 		height: calc(3rem * ${content.WorkingExperience.length});
 	}
 
@@ -198,11 +199,13 @@ export const ContentBox = () => {
 								}
 								onClick={() => {
 									setActiveNumber(index);
-									responsibilityRefs.current[index].scrollIntoView({
-										behavior: "smooth",
-										block: "nearest",
-										inline: "center",
-									});
+									// 640px is the breakpoint that I defined for the switch between mobile and tablet/desktop
+									window.innerWidth < 640 &&
+										responsibilityRefs.current[index].scrollIntoView({
+											behavior: "smooth",
+											block: "nearest",
+											inline: "center",
+										});
 								}}>
 								{experience.company}
 							</Workplace>
