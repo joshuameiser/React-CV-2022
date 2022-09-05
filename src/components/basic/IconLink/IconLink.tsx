@@ -10,7 +10,6 @@ export interface IconLinkProps {
 export const IconLink = (props: IconLinkProps) => {
 	return (
 		<a className={classes.wrapper} href={props.href} target="_blank">
-			<div className={classes.divider} />
 			<div className={classes.iconWrapper}>
 				<FontAwesomeIcon className={classes.icon} icon={props.icon} />
 			</div>

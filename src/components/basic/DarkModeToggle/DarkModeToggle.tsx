@@ -19,12 +19,8 @@ const ModeToggle = styled.div`
 `;
 
 const StyledIcon = styled(FontAwesomeIcon)`
-	color: var(--contrastColor);
+	color: var(--secondaryColor);
 	cursor: pointer;
-	transition: 0.4s;
-	&:hover {
-		color: var(--primaryColor);
-	}
 `;
 
 export const DarkModeToggle = (props: DarkModeToggleProps) => {

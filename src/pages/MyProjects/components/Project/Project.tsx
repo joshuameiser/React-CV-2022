@@ -39,7 +39,7 @@ const LinkWrapper = styled.div`
 
 const Link = styled.a`
 	padding: 8px;
-	color: white;
+	color: var(--contrastColor);
 	&:hover {
 		color: var(--primaryColor);
 	}
@@ -47,6 +47,7 @@ const Link = styled.a`
 
 const Heading = styled.h1`
 	padding: 0;
+	margin: 16px 0;
 `;
 
 export interface ProjectProps {

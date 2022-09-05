@@ -59,7 +59,7 @@ const Description = styled(motion.p)<{ inView: boolean }>`
 	width: 200px;
 	height: 60px;
 	font-size: 1.75rem;
-	color: white;
+	color: var(--contrastColor);
 	display: flex;
 	justify-content: left;
 	margin: 0 0 0 16px;
@@ -90,7 +90,7 @@ const Description = styled(motion.p)<{ inView: boolean }>`
 const TextSection = styled(motion.div)<{}>`
 	max-width: 600px;
 	height: 0;
-	color: white;
+	color: var(--contrastColor);
 	font-size: 1.5rem;
 	padding: 1rem;
 	display: flex;
@@ -171,9 +171,14 @@ export const Category = (props: CategoryProps) => {
 						? {
 								height: "auto",
 								border: "2px solid var(--primaryColor)",
-								color: "white",
+								color: "var(--contrastColor)",
 						  }
-						: { height: 0, border: "0px", color: "black", padding: "0 32px" }
+						: {
+								height: 0,
+								border: "0px",
+								color: "var(--backgroundColor)",
+								padding: "0 32px",
+						  }
 				}
 				transition={{ duration: 0.3 }}>
 				<motion.p

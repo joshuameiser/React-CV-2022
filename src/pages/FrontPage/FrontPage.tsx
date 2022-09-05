@@ -52,7 +52,6 @@ const TextWrapper = styled.div`
 
 const Image = styled.img`
 	height: 94%;
-	// position: sticky;
 	bottom: 0px;
 	z-index: 0;
 `;
@@ -60,18 +59,17 @@ const Image = styled.img`
 const Wrapper = styled.div`
 	background: linear-gradient(
 		180deg,
-		var(--backgroundColor) 0%,
-		var(--backgroundColor) 60%,
+		black 0%,
+		black 60%,
 		var(--primaryColor) 100%
 	);
 	display: flex;
 	position: fixed;
 	z-index: 0;
 	top: 0px;
-	// left: 10%;
 	justify-content: flex-end;
 	align-items: center;
-	width: inherit;
+	width: 100vw;
 	height: 100vh;
 	flex-direction: column;
 `;
@@ -81,7 +79,6 @@ const SpaceHolder = styled.div`
 `;
 
 // TODO: Document the page in Storybook (probably not necessary right away, as it's not a final design either)
-// TODO: Add the text content into the data folder
 export const FrontPage = () => {
 	return (
 		<>

@@ -5,10 +5,10 @@
 [data-theme="dark-mode"] {
 	--backgroundColor: black;
 	--secondaryBackgroundColor: #303030;
-	--primaryColor: purple;
-	--secondaryColor: royalblue;
-	--primaryColor-rgb: #{hexToRGB(purple)};
-	--secondaryColor-rgb: #{hexToRGB(royalblue)};
+	--primaryColor: #800080;
+	--secondaryColor: #0075ff;
+	--primaryColor-rgb: #{hexToRGB(#800080)};
+	--secondaryColor-rgb: #{hexToRGB(#0075ff)};
 	--contrastColor: #ced4da;
 	--primaryHover: rgba(var(--primaryColor-rgb), 0.3);
 	--secondaryHover: rgba(var(--secondaryColor-rgb), 0.3);

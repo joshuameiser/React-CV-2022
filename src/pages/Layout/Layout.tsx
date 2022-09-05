@@ -36,20 +36,21 @@ export const Layout = () => {
 
 	useEffect(() => {
 		const savedTheme = window.localStorage.getItem("color-mode");
-		setTheme(
-			savedTheme ?? window.matchMedia("(prefers-color-scheme: dark)").matches
-				? "dark-mode"
-				: "light-mode"
-		);
+		console.log(savedTheme);
+		if (savedTheme) setTheme(savedTheme);
+		if (!savedTheme)
+			setTheme(
+				window.matchMedia("(prefers-color-scheme: dark)").matches
+					? "dark-mode"
+					: "light-mode"
+			);
 	}, []);
 	// Currently just a very simple theme toggle (only two themes possible right now, make more available?)
-	// TODO: Add an actual theme toggle
-	// TODO: Save the current theme in localStorage
 	// TODO: Create a context, which includes the currently selected theme? Or just pass it down to the necessary component, if it's just one
 	return (
 		<LayoutWrapper data-theme={theme}>
 			<DarkModeToggle theme={theme} setTheme={setTheme} />
-			{/* <Menu /> */}=
+			{/* <Menu /> */}
 			<Content>
 				<FrontPage />
 				<AboutMe />

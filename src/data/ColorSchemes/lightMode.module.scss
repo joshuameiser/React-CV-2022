@@ -4,9 +4,12 @@
 
 [data-theme="light-mode"] {
 	--backgroundColor: rgb(255, 255, 255);
-	// --secondaryBackgroundColor: #d2d2d2;
-	--secondaryBackgroundColor: rgb(0, 7, 150);
-	--primaryColor: rgb(15, 0, 181);
-	--primaryColor-rgb: #{hexToRGB(purple)};
+	--secondaryBackgroundColor: #d2d2d2;
+	--primaryColor: #0122ff;
+	--secondaryColor: #b38900;
+	--primaryColor-rgb: #{hexToRGB(#0122ff)};
+	--secondaryColor-rgb: #{hexToRGB(#b38900)};
 	--contrastColor: black;
+	--primaryHover: rgba(var(--primaryColor-rgb), 0.3);
+	--secondaryHover: rgba(var(--secondaryColor-rgb), 0.3);
 }
