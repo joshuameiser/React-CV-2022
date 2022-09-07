@@ -8,7 +8,6 @@ import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
 const ProjectsWrapper = styled.div`
 	display: flex;
 	justify-content: flex-start;
-	padding: 16px;
 	gap: 32px;
 	flex-wrap: wrap;
 `;

@@ -9,7 +9,8 @@ const Wrapper = styled(motion.div)`
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
-	padding: 16px;
+  padding:16px;
+  margin-left:16px;
 	color: var(--contrastColor);
 	border: 1px solid var(--primaryColor);
 	border-radius: 8px;
@@ -17,6 +18,10 @@ const Wrapper = styled(motion.div)`
 	:hover {
 		background-color: var(--primaryHover);
 	}
+
+  @media(min-width:640px) {
+    margin-left:64px;
+  }
 `;
 
 const Divider = styled.div`

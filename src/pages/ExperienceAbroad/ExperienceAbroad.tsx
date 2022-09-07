@@ -18,7 +18,7 @@ export const ExperienceAbroad = () => {
 		<PageWrapper>
 			<Headline>Experience Abroad</Headline>
 			<ContentWrapper>
-				{content.Education.map((entry) => {
+				{content.ExperienceAbroad.map((entry) => {
 					return (
 						<Experience
 							name={entry.name}
