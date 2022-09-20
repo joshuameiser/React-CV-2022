@@ -7,6 +7,9 @@ import {
 	faInstagram,
 	faGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import PDFModal from "./components/PDFModal";
+import { useState } from "react";
+import CV from "./CV.pdf";
 
 const Wrapper = styled(PageWrapper)`
 	display: flex;
@@ -59,13 +62,33 @@ const Socials = styled(GetInTouch)`
 	}
 `;
 
+const CVsection = styled(GetInTouch)`
+	width: 240px;
+	display: flex;
+	gap: 4px;
+`;
+
 const Icons = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
 `;
 
+const Link = styled.p`
+	color: var(--secondaryColor);
+	text-decoration: underline;
+	cursor: pointer;
+	padding: 0 4px;
+
+	&:hover {
+		background-color: var(--secondaryHover);
+		border-radius: 8px;
+	}
+`;
+
 export const Contact = () => {
+	const [showPDFModal, setShowPDFModal] = useState(false);
+
 	return (
 		<Wrapper>
 			<Headline position="right">Get in touch</Headline>
@@ -94,6 +117,17 @@ export const Contact = () => {
 					/>
 				</Icons>
 			</Socials>
+			<CVsection>
+				<p>Or alternatively download my CV</p>
+				<Link onClick={() => setShowPDFModal(true)}>here.</Link>
+			</CVsection>
+			<PDFModal
+				file={CV}
+				visibility={showPDFModal}
+				changeVisibility={() => {
+					setShowPDFModal(!showPDFModal);
+				}}
+			/>
 		</Wrapper>
 	);
 };
