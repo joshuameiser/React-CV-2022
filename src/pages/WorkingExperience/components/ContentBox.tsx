@@ -9,9 +9,10 @@ const Wrapper = styled.div`
 	gap: 32px;
 	position: relative;
 	height: auto;
-
+  
 	@media (min-width: 640px) {
-		padding: 0 32px;
+    min-height:400px;
+    padding: 0 32px;
 		gap: 0;
 		flex-direction: row;
 		justify-content: flex-end;
@@ -95,12 +96,14 @@ const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
 
 const DescriptionWrapper = styled.div`
 	height: 100%;
+  min-height:400px;
 	margin-right: 16px;
 	@media (min-width: 400px) {
 		margin-right: 32px;
 	}
 	@media (min-width: 640px) {
 		align-items: flex-start;
+    min-height:0px;
 	}
 	@media (min-width: 760px) {
 		margin-right: 64px;

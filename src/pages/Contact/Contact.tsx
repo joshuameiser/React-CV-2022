@@ -109,11 +109,11 @@ export const Contact = () => {
 					<IconLink icon={faGithub} href="https://github.com/joshuameiser" />
 					<IconLink
 						icon={faInstagram}
-						href="https://www.linkedin.com/in/joshua-meiser/"
+						href="https://www.instagram.com/joshua.meiser/"
 					/>
 					<IconLink
 						icon={faLinkedin}
-						href="https://www.instagram.com/joshua.meiser/"
+            href="https://www.linkedin.com/in/joshua-meiser/"
 					/>
 				</Icons>
 			</Socials>
