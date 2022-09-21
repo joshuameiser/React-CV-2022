@@ -15,15 +15,17 @@ const IconWrapper = styled(motion.div)`
 	display: inline-block;
 `;
 
-const fillFalseArray = () => {return new Array(content.whoAmI.length).fill(false)}
+const fillFalseArray = () => {
+	return new Array(content.whoAmI.length).fill(false);
+};
 
 export const AboutMe = () => {
-	const [clicked, setClicked] = useState<boolean[]>(
-		fillFalseArray()
-	);
+	const [clicked, setClicked] = useState<boolean[]>(fillFalseArray());
 
-  const {theme} = useContext(ThemeContext)
-  useEffect(() => {setClicked(fillFalseArray())},[theme])
+	const { theme } = useContext(ThemeContext);
+	useEffect(() => {
+		setClicked(fillFalseArray());
+	}, [theme]);
 
 	return (
 		<PageWrapper>
@@ -45,8 +47,8 @@ export const AboutMe = () => {
 							<IconWrapper
 								animate={{
 									scale: [1, 1.2, 1],
-									color: "var(--secondaryColor)",
 								}}
+								initial={{ color: "var(--secondaryColor)" }}
 								transition={{ repeat: Infinity, duration: 2 }}>
 								<FontAwesomeIcon icon={faHeartbeat} />
 							</IconWrapper>

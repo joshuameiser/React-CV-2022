@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image from "../../data/MyImage.png";
+import image from "../../data/MyImage.webp";
 import content from "../../data/Content.json";
 
 const Text = styled.p`
