@@ -87,7 +87,10 @@ export const FrontPage = () => {
 					<Text>{content.name.firstName.toUpperCase()}</Text>
 					<Text>{content.name.lastName.toUpperCase()}</Text>
 				</TextWrapper>
-				<Image src={image} />
+				<Image
+					src={image}
+					alt="Image of the owner of the website, Joshua Meiser"
+				/>
 			</Wrapper>
 			<SpaceHolder />
 		</>
