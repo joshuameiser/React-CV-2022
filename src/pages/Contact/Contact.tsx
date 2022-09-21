@@ -96,7 +96,7 @@ export const Contact = () => {
 				<Text>If you want to get in contact, just send me a mail.</Text>
 				<ContactButton
 					onClick={() => {
-						window.open("mailto:jm@joshuameiser.com");
+						window.open("mailto:jm@joshuameiser.de");
 					}}>
 					Do it.
 				</ContactButton>
@@ -113,7 +113,7 @@ export const Contact = () => {
 					/>
 					<IconLink
 						icon={faLinkedin}
-            href="https://www.linkedin.com/in/joshua-meiser/"
+						href="https://www.linkedin.com/in/joshua-meiser/"
 					/>
 				</Icons>
 			</Socials>
