@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import classes from "./Modal.module.css";
-import disableScrolling from "../../../../disableScrolling";
+import { disableScrolling } from "@joshuameiser/utility-functions";
 
 const Modal = (props: {
 	children?: JSX.Element;

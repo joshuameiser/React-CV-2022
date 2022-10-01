@@ -6,6 +6,7 @@ specifiers:
   '@fortawesome/free-solid-svg-icons': ^6.1.1
   '@fortawesome/react-fontawesome': ^0.2.0
   '@joshuameiser/hamburger': ^1.0.12
+  '@joshuameiser/utility-functions': ^0.0.0
   '@types/react': ^18.0.0
   '@types/react-dom': ^18.0.0
   '@types/react-pdf': ^5.7.2
@@ -26,6 +27,7 @@ dependencies:
   '@fortawesome/free-solid-svg-icons': 6.1.1
   '@fortawesome/react-fontawesome': 0.2.0_sdfg7szeivrzzj63kiqxwaxkwu
   '@joshuameiser/hamburger': 1.0.12_@types+react@18.0.15
+  '@joshuameiser/utility-functions': 0.0.0
   framer-motion: 7.2.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -430,6 +432,10 @@ packages:
       - '@emotion/react'
       - '@emotion/styled'
       - '@types/react'
+    dev: false
+
+  /@joshuameiser/utility-functions/0.0.0:
+    resolution: {integrity: sha512-tQGQDVPxpUG2mD/59Kty5DazlYskTZKH/dPU1vsYjD0n88G3G2f7+30DA40c+ytqfm+oPYz8yPAuhzd0S6B88A==}
     dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
