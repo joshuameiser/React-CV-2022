@@ -14,6 +14,7 @@
 		"@fortawesome/react-fontawesome": "^0.2.0",
 		"@joshuameiser/hamburger": "^1.0.12",
 		"@joshuameiser/utility-functions": "^0.0.0",
+		"@joshuameiser/component-library": "^0.0.9",
 		"framer-motion": "^7.2.0",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
