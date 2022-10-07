@@ -9,3 +9,11 @@ body {
 	font-family: "Saira Extra Condensed";
 	user-select: none;
 }
+
+:root {
+	--backgroundColor: #fff;
+	--secondaryBackgroundColor: #000;
+	--primaryColor: #00f;
+	--secondaryColor: #f00;
+	--contrastColor: #fefefe;
+}
