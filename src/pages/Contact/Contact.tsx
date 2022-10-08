@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Headline from "../../components/basic/Headline/Headline";
 import IconLink from "../../components/basic/IconLink/IconLink";
-
+import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
 import {
 	faLinkedin,
 	faInstagram,
@@ -10,8 +10,6 @@ import {
 import PDFModal from "./components/PDFModal";
 import { useState } from "react";
 import CV from "./CV.pdf";
-import { Button, buttonClasses } from "@joshuameiser/component-library";
-import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
 
 const Wrapper = styled(PageWrapper)`
 	display: flex;
@@ -26,17 +24,20 @@ const Text = styled.p`
 	font-size: inherit;
 `;
 
-const ContactButton = styled(Button)`
+const ContactButton = styled.button`
+	background-color: var(--primaryColor);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 0;
 	width: inherit;
-	padding: 8px;
-	&:hover {
-		.${buttonClasses.content} {
-			// color: var(--primaryColor);
-		}
-	}
+	font-size: 1.25rem;
+	cursor: pointer;
+	transition: 0.4s ease-in-out;
 
-	& .${buttonClasses.content} {
-		font-size: 1.25rem;
+	&:hover {
+		background-color: var(--primaryHover);
+		color: var(--primaryColor);
 	}
 `;
 
@@ -94,7 +95,6 @@ export const Contact = () => {
 			<GetInTouch>
 				<Text>If you want to get in contact, just send me a mail.</Text>
 				<ContactButton
-					backgroundColor="var(--primaryColor)"
 					onClick={() => {
 						window.open("mailto:jm@joshuameiser.de");
 					}}>

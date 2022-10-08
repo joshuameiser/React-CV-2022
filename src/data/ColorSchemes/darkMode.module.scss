@@ -1,0 +1,15 @@
+@function hexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
+[data-theme="dark-mode"] {
+	--backgroundColor: black;
+	--secondaryBackgroundColor: #303030;
+	--primaryColor: #800080;
+	--secondaryColor: #0075ff;
+	--primaryColor-rgb: #{hexToRGB(#800080)};
+	--secondaryColor-rgb: #{hexToRGB(#0075ff)};
+	--contrastColor: #ced4da;
+	--primaryHover: rgba(var(--primaryColor-rgb), 0.3);
+	--secondaryHover: rgba(var(--secondaryColor-rgb), 0.3);
+}

@@ -32,11 +32,11 @@ export const DarkModeToggle = (props: DarkModeToggleProps) => {
 	return (
 		<ModeToggle
 			onClick={() => {
-				props.theme === "dark"
-					? props.setTheme("light")
-					: props.setTheme("dark");
+				props.theme === "dark-mode"
+					? props.setTheme("light-mode")
+					: props.setTheme("dark-mode");
 			}}>
-			<StyledIcon icon={props.theme === "dark" ? faMoon : faSun} />
+			<StyledIcon icon={props.theme === "dark-mode" ? faMoon : faSun} />
 		</ModeToggle>
 	);
 };

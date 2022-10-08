@@ -4,10 +4,10 @@ import { ContentBox } from "./components/ContentBox";
 import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
 
 export const WorkingExperience = () => {
-	const Wrapper = styled(PageWrapper)`
-		padding-bottom: 200px;
-	`;
-
+  const Wrapper = styled(PageWrapper)`
+  padding-bottom:200px;
+  `
+  
 	return (
 		<Wrapper>
 			<Headline position="right">Working Experience</Headline>
