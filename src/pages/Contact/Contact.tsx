@@ -10,6 +10,7 @@ import {
 import PDFModal from "./components/PDFModal";
 import { useState } from "react";
 import CV from "./CV.pdf";
+import { Button, buttonClasses } from "@joshuameiser/component-library";
 
 const Wrapper = styled(PageWrapper)`
 	display: flex;
@@ -24,20 +25,12 @@ const Text = styled.p`
 	font-size: inherit;
 `;
 
-const ContactButton = styled.button`
-	background-color: var(--primaryColor);
-	color: white;
-	border: none;
-	border-radius: 8px;
+const ContactButton = styled(Button)`
 	padding: 8px 0;
 	width: inherit;
-	font-size: 1.25rem;
-	cursor: pointer;
 	transition: 0.4s ease-in-out;
-
-	&:hover {
-		background-color: var(--primaryHover);
-		color: var(--primaryColor);
+	& .${buttonClasses.content} {
+		font-size: 1.25rem;
 	}
 `;
 
@@ -95,6 +88,9 @@ export const Contact = () => {
 			<GetInTouch>
 				<Text>If you want to get in contact, just send me a mail.</Text>
 				<ContactButton
+					backgroundColor="var(--primaryColor)"
+					hoverColor="var(--primaryHover)"
+					color="var(--contrastColor)"
 					onClick={() => {
 						window.open("mailto:jm@joshuameiser.de");
 					}}>

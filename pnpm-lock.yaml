@@ -5,6 +5,7 @@ specifiers:
   '@fortawesome/free-brands-svg-icons': ^6.1.1
   '@fortawesome/free-solid-svg-icons': ^6.1.1
   '@fortawesome/react-fontawesome': ^0.2.0
+  '@joshuameiser/component-library': ^0.0.12
   '@joshuameiser/hamburger': ^1.0.12
   '@joshuameiser/utility-functions': ^0.0.0
   '@types/react': ^18.0.0
@@ -26,6 +27,7 @@ dependencies:
   '@fortawesome/free-brands-svg-icons': 6.1.1
   '@fortawesome/free-solid-svg-icons': 6.1.1
   '@fortawesome/react-fontawesome': 0.2.0_sdfg7szeivrzzj63kiqxwaxkwu
+  '@joshuameiser/component-library': 0.0.12_vkuxkdlngzyz4vqegfq57oq3py
   '@joshuameiser/hamburger': 1.0.12_@types+react@18.0.15
   '@joshuameiser/utility-functions': 0.0.0
   framer-motion: 7.2.0_biqbaboplfbrettd7655fr4n2y
@@ -419,6 +421,23 @@ packages:
       '@fortawesome/fontawesome-svg-core': 6.1.1
       prop-types: 15.8.1
       react: 18.2.0
+    dev: false
+
+  /@joshuameiser/component-library/0.0.12_vkuxkdlngzyz4vqegfq57oq3py:
+    resolution: {integrity: sha512-Pgz8oAeeqLS8ZRfRHGDgtS7BYqhUpYK7/0oowmDbNRWUcJdWNCfXEg/KrsjCSjEyCkiJwdPGvSp8tSlZ0m5MFA==}
+    dependencies:
+      '@babel/polyfill': 7.12.1
+      '@mui/material': 5.9.1_bb2bxwco6ptpubzwpazr52qf6i
+      colorcolor: 2.0.3
+      polished: 4.2.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      styled-components: 5.3.5_7i5myeigehqah43i5u7wbekgba
+    transitivePeerDependencies:
+      - '@emotion/react'
+      - '@emotion/styled'
+      - '@types/react'
+      - react-is
     dev: false
 
   /@joshuameiser/hamburger/1.0.12_@types+react@18.0.15:
@@ -1031,6 +1050,12 @@ packages:
   /color-name/1.1.3:
     resolution: {integrity: sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==}
 
+  /colorcolor/2.0.3:
+    resolution: {integrity: sha512-PIW707kJCj/pDKdvoJqZyT++rJCaw+3mBsVRlCSRYIAJ6/LIVMsxdT0Mch1rb97PsvcuTBSubLCdH7Ol2EAOGw==}
+    dependencies:
+      css-color-names: 1.0.1
+    dev: false
+
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
     dev: false
@@ -1050,6 +1075,10 @@ packages:
   /css-color-keywords/1.0.0:
     resolution: {integrity: sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==}
     engines: {node: '>=4'}
+    dev: false
+
+  /css-color-names/1.0.1:
+    resolution: {integrity: sha512-/loXYOch1qU1biStIFsHH8SxTmOseh1IJqFvy8IujXOm1h+QjUdDhkzOrR5HG8K8mlxREj0yfi8ewCHx0eMxzA==}
     dev: false
 
   /css-to-react-native/3.0.0:
@@ -1632,6 +1661,13 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+
+  /polished/4.2.2:
+    resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@babel/runtime': 7.18.9
+    dev: false
 
   /popmotion/11.0.5:
     resolution: {integrity: sha512-la8gPM1WYeFznb/JqF4GiTkRRPZsfaj2+kCxqQgr2MJylMmIKUwBfWW8Wa5fml/8gmtlD5yI01MP1QCZPWmppA==}

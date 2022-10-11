@@ -2,14 +2,15 @@
 	@return red($hex), green($hex), blue($hex);
 }
 
+$primary-color: #800080;
+$secondary-color: #0075ff;
+
 [data-theme="dark-mode"] {
 	--backgroundColor: black;
 	--secondaryBackgroundColor: #303030;
-	--primaryColor: #800080;
-	--secondaryColor: #0075ff;
-	--primaryColor-rgb: #{hexToRGB(#800080)};
-	--secondaryColor-rgb: #{hexToRGB(#0075ff)};
+	--primaryColor: #{$primary-color};
+	--secondaryColor: #{$secondary-color};
 	--contrastColor: #ced4da;
-	--primaryHover: rgba(var(--primaryColor-rgb), 0.3);
-	--secondaryHover: rgba(var(--secondaryColor-rgb), 0.3);
+	--primaryHover: #{lighten($primary-color, 10%)};
+	--secondaryHover: #{lighten($secondary-color, 10%)};
 }
