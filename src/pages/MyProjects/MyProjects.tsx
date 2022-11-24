@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Project from "./components/Project/Project";
 import Headline from "../../components/basic/Headline/Headline";
-import content from "../../data/Content.json";
 import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
+import { useContent } from "../../data/Content";
 
 const ProjectsWrapper = styled.div`
 	display: flex;
@@ -13,6 +13,8 @@ const ProjectsWrapper = styled.div`
 `;
 
 export const MyProjects = () => {
+	const content = useContent();
+
 	return (
 		<PageWrapper>
 			<Headline>My Projects</Headline>

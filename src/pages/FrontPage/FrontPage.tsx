@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import { useContent } from "../../data/Content";
 import image from "../../data/MyImage.webp";
-import content from "../../data/Content.json";
 
 const Text = styled.p`
 	font-size: 8rem;
@@ -80,6 +80,8 @@ const SpaceHolder = styled.div`
 
 // TODO: Document the page in Storybook (probably not necessary right away, as it's not a final design either)
 export const FrontPage = () => {
+	const content = useContent();
+
 	return (
 		<>
 			<Wrapper>

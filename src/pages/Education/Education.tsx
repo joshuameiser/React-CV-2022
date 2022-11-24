@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Headline from "../../components/basic/Headline/Headline";
 import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
-import content from "../../data/Content.json";
+import { useContent } from "../../data/Content";
 import { EducationStep } from "./components/EducationStep";
 
 const ContentWrapper = styled.div`
@@ -12,6 +12,8 @@ const ContentWrapper = styled.div`
 `;
 
 export const Education = () => {
+	const content = useContent();
+
 	return (
 		<PageWrapper>
 			<Headline position="right">Education</Headline>
