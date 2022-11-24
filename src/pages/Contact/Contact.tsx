@@ -11,6 +11,7 @@ import PDFModal from "./components/PDFModal";
 import { useState } from "react";
 import CV from "./CV.pdf";
 import { Button, buttonClasses } from "@joshuameiser/component-library";
+import { useContent } from "../../data/Content";
 
 const Wrapper = styled(PageWrapper)`
 	display: flex;
@@ -21,6 +22,7 @@ const Wrapper = styled(PageWrapper)`
 
 const Text = styled.p`
 	margin: 0;
+
 	text-align: right;
 	font-size: inherit;
 `;
@@ -51,12 +53,12 @@ const Socials = styled(GetInTouch)`
 	width: 320px;
 
 	@media (min-width: 640px) {
-		width: 340px;
+		width: 360px;
 	}
 `;
 
 const CVsection = styled(GetInTouch)`
-	width: 240px;
+	width: auto;
 	display: flex;
 	gap: 4px;
 `;
@@ -80,13 +82,14 @@ const Link = styled.p`
 `;
 
 export const Contact = () => {
+	const content = useContent();
 	const [showPDFModal, setShowPDFModal] = useState(false);
 
 	return (
 		<Wrapper>
-			<Headline position="right">Get in touch</Headline>
+			<Headline position="right">{content.contactTitle}</Headline>
 			<GetInTouch>
-				<Text>If you want to get in contact, just send me a mail.</Text>
+				<Text>{content.Contact.entryText}</Text>
 				<ContactButton
 					backgroundColor="var(--primaryColor)"
 					hoverColor="var(--primaryHover)"
@@ -94,13 +97,11 @@ export const Contact = () => {
 					onClick={() => {
 						window.open("mailto:jm@joshuameiser.de");
 					}}>
-					Do it.
+					{content.Contact.buttonText}
 				</ContactButton>
 			</GetInTouch>
 			<Socials>
-				<Text style={{ marginTop: "32px" }}>
-					You can also find me on GitHub, Instagram and LinkedIn.
-				</Text>
+				<Text style={{ marginTop: "32px" }}>{content.Contact.socialsText}</Text>
 				<Icons>
 					<IconLink icon={faGithub} href="https://github.com/joshuameiser" />
 					<IconLink
@@ -114,8 +115,10 @@ export const Contact = () => {
 				</Icons>
 			</Socials>
 			<CVsection>
-				<p>Or alternatively download my CV</p>
-				<Link onClick={() => setShowPDFModal(true)}>here.</Link>
+				<p>{content.Contact.cv.text}</p>
+				<Link onClick={() => setShowPDFModal(true)}>
+					{content.Contact.cv.action}
+				</Link>
 			</CVsection>
 			<PDFModal
 				file={CV}

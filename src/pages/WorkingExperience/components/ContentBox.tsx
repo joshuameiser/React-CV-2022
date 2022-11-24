@@ -1,6 +1,6 @@
 import { createRef, ReactNode, useRef, useState } from "react";
 import styled from "styled-components";
-import content from "../../../data/Content.json";
+import { contentEn, useContent } from "../../../data/Content";
 import { Responsibility } from "./Responsibility";
 
 const Wrapper = styled.div`
@@ -9,10 +9,10 @@ const Wrapper = styled.div`
 	gap: 32px;
 	position: relative;
 	height: auto;
-  
+
 	@media (min-width: 640px) {
-    min-height:400px;
-    padding: 0 32px;
+		min-height: 400px;
+		padding: 0 32px;
 		gap: 0;
 		flex-direction: row;
 		justify-content: flex-end;
@@ -96,14 +96,14 @@ const Workplace = styled.p<{ projectCount: number; isActive: boolean }>`
 
 const DescriptionWrapper = styled.div`
 	height: 100%;
-  min-height:400px;
+	min-height: 400px;
 	margin-right: 16px;
 	@media (min-width: 400px) {
 		margin-right: 32px;
 	}
 	@media (min-width: 640px) {
 		align-items: flex-start;
-    min-height:0px;
+		min-height: 0px;
 	}
 	@media (min-width: 760px) {
 		margin-right: 64px;
@@ -145,7 +145,8 @@ const SelectionWrapper = styled.div`
 	height: 100%;
 	@media (min-width: 640px) {
 		// 2.5rem because of 1.5rem font-size with line-height 1 and 1rem gap
-		height: calc(2.5rem * ${content.WorkingExperience.length});
+		// contentEn just to calculate length (contentEn, contentDe are of same length)
+		height: calc(2.5rem * ${contentEn.WorkingExperience.length});
 		flex-direction: row;
 		margin-right: 64px;
 		gap: 16px;
@@ -153,7 +154,7 @@ const SelectionWrapper = styled.div`
 	}
 
 	@media (min-width: 1000px) {
-		height: calc(3rem * ${content.WorkingExperience.length});
+		height: calc(3rem * ${contentEn.WorkingExperience.length});
 	}
 
 	::-webkit-scrollbar {
@@ -168,6 +169,8 @@ const SelectionWrapper = styled.div`
 `;
 
 export const ContentBox = () => {
+	const content = useContent();
+
 	const workingExperience = content.WorkingExperience;
 	const projectCount = workingExperience.length;
 

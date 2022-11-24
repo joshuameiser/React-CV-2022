@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Headline from "../../components/basic/Headline/Headline";
 import { PageWrapper } from "../../components/basic/PageWrapper/PageWrapper";
+import { useContent } from "../../data/Content";
 import { EducationStep } from "../Education/components/EducationStep";
-import content from "../../data/Content.json";
 
 const Experience = styled(EducationStep)``;
 
@@ -14,9 +14,11 @@ const ContentWrapper = styled.div`
 `;
 
 export const ExperienceAbroad = () => {
+	const content = useContent();
+
 	return (
 		<PageWrapper>
-			<Headline>Experience Abroad</Headline>
+			<Headline>{content.experienceAbroadTitle}</Headline>
 			<ContentWrapper>
 				{content.ExperienceAbroad.map((entry) => {
 					return (

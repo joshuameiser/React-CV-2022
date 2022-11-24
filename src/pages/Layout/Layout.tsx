@@ -13,6 +13,7 @@ import { ExperienceAbroad } from "../ExperienceAbroad/ExperienceAbroad";
 import { Education } from "../Education/Education";
 import { Contact } from "../Contact/Contact";
 import { ThemeContext, useTheme } from "../../context/themeContext";
+import { LanguageToggle } from "../../components/basic/LanguageToggle/LanguageToggle";
 
 export const themes = ["dark-mode", "green-inferno", "light-mode"];
 
@@ -33,7 +34,7 @@ const LayoutWrapper = styled.div`
 `;
 
 export const Layout = () => {
-  const {theme, setTheme} = useTheme();
+	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
 		const savedTheme = window.localStorage.getItem("color-mode");
@@ -48,20 +49,21 @@ export const Layout = () => {
 	// Currently just a very simple theme toggle (only two themes possible right now, make more available?)
 	// TODO: Create a context, which includes the currently selected theme? Or just pass it down to the necessary component, if it's just one
 	return (
-    <ThemeContext.Provider value={{theme, setTheme}}>
-		<LayoutWrapper data-theme={theme}>
-			<DarkModeToggle theme={theme} setTheme={setTheme} />
-			{/* <Menu /> */}
-			<Content>
-				<FrontPage />
-				<AboutMe />
-				<WorkingExperience />
-				<ExperienceAbroad />
-				<Education />
-				<MyProjects />
-				<Contact />
-			</Content>
-		</LayoutWrapper>
-    </ThemeContext.Provider>
+		<ThemeContext.Provider value={{ theme, setTheme }}>
+			<LayoutWrapper data-theme={theme}>
+				<DarkModeToggle theme={theme} setTheme={setTheme} />
+				<LanguageToggle />
+				{/* <Menu /> */}
+				<Content>
+					<FrontPage />
+					<AboutMe />
+					<WorkingExperience />
+					<ExperienceAbroad />
+					<Education />
+					<MyProjects />
+					<Contact />
+				</Content>
+			</LayoutWrapper>
+		</ThemeContext.Provider>
 	);
 };

@@ -8,6 +8,8 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@emotion/react": "^11.10.5",
+		"@emotion/styled": "^11.10.5",
 		"@fortawesome/fontawesome-svg-core": "^6.1.1",
 		"@fortawesome/free-brands-svg-icons": "^6.1.1",
 		"@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -15,9 +17,12 @@
 		"@joshuameiser/component-library": "^0.0.12",
 		"@joshuameiser/hamburger": "^1.0.12",
 		"@joshuameiser/utility-functions": "^0.0.0",
+		"@mui/material": "^5.10.15",
 		"framer-motion": "^7.2.0",
+		"i18next": "^22.0.6",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
+		"react-i18next": "^12.0.0",
 		"react-pdf": "^5.7.2",
 		"sass": "^1.53.0",
 		"styled-components": "^5.3.5"
