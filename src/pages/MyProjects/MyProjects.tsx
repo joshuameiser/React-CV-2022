@@ -17,7 +17,7 @@ export const MyProjects = () => {
 
 	return (
 		<PageWrapper>
-			<Headline>My Projects</Headline>
+			<Headline>{content.myProjectsTitle}</Headline>
 			<ProjectsWrapper>
 				{content.Projects.map((project, index) => {
 					return (

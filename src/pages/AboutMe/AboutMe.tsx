@@ -31,7 +31,7 @@ export const AboutMe = () => {
 
 	return (
 		<PageWrapper>
-			<Headline>Who am I?</Headline>
+			<Headline>{content.aboutMeTitle}</Headline>
 			{content.whoAmI.map((element, index) => {
 				return (
 					<Category

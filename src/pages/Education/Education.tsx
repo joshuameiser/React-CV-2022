@@ -16,7 +16,7 @@ export const Education = () => {
 
 	return (
 		<PageWrapper>
-			<Headline position="right">Education</Headline>
+			<Headline position="right">{content.educationTitle}</Headline>
 			<ContentWrapper>
 				{content.Education.map((entry) => {
 					return (

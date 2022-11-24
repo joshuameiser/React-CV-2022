@@ -9,7 +9,6 @@ import {
 	LanguageAbbreviation,
 	languages,
 } from "../../../data/LanguageAbbreviation";
-import { useLanguage } from "../../../data/Content";
 
 const Wrapper = styled.div`
 	width: 32px;
@@ -30,7 +29,6 @@ const StyledMenu = styled(Menu)`
 `;
 
 export const LanguageToggle = () => {
-	const Language = useLanguage();
 	const [anchorEl, setAnchorEl] = useState<null | SVGSVGElement>(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {

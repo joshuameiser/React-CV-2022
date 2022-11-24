@@ -15,6 +15,7 @@ export const useContent = () => {
 
 export const contentEn = {
 	name: { firstName: "Joshua", lastName: "Meiser" },
+	aboutMeTitle: "Who am I?",
 	whoAmI: [
 		{
 			title: "Developer",
@@ -44,11 +45,12 @@ export const contentEn = {
 			sourceCodeLink: "",
 		},
 	],
+	workingExperienceTitle: "Working Experience",
 	WorkingExperience: [
 		{
 			company: "Aclue GmbH",
 			position: "Frontend Consultant",
-			timeframe: "01.03.2022 - Ongoing",
+			timeframe: "01.03.2022 - 31.12.2022",
 			responsibilities: [
 				"Component creation based on MUI",
 				"Maintanance on a design system for OTTO",
@@ -97,6 +99,7 @@ export const contentEn = {
 			],
 		},
 	],
+	educationTitle: "Education",
 	Education: [
 		{
 			name: "School Certificate : Abitur",
@@ -114,6 +117,7 @@ export const contentEn = {
 			timeframe: "April 2018 - April 2022",
 		},
 	],
+	experienceAbroadTitle: "Experience Abroad",
 	ExperienceAbroad: [
 		{
 			name: "Cambridge Exam (C1)",
@@ -126,102 +130,116 @@ export const contentEn = {
 			timeframe: "September 2015 - July 2016",
 		},
 	],
+	myProjectsTitle: "My Projects",
+	contactTitle: "Get in touch",
+	Contact: {
+		entryText: "If you want to get in contact, just send me a mail.",
+		socialsText: "You can also find me on GitHub, Instagram and LinkedIn.",
+		cv: {
+			text: "Or alternatively download my CV",
+			action: "here.",
+		},
+		buttonText: "Do it.",
+	},
 };
 
 export const contentDe = {
 	name: { firstName: "Joshua", lastName: "Meiser" },
+	aboutMeTitle: "Wer bin ich?",
 	whoAmI: [
 		{
-			title: "Developer",
+			title: "Entwickler",
 			description: [
 				"Ich bin ein begeisterter Frontend Entwickler mit einer Liebe für React.",
-				"I love creating components, or entire websites, utilizing SCSS or Styled Components and am always excited to find new ways of developing.",
+				"Am liebsten erstelle ich Komponenten oder gesamte Webseiten. Dabei nutze ich SCSS oder Styled Components und bin immer auf der Suche nach neuen Entwicklungsmöglichkeiten.",
 			],
 			heart: true,
 		},
 		{
-			title: "Climber",
+			title: "Boulderer",
 			description: [
-				"After work, my heart primarily beats for climbing, or more specifically for bouldering. I have been doing this sport since the age of 13 and could not imagine a life without it anymore.",
+				"Nach der Arbeit schlägt mein Herz primär für den Bouldersport. Mich findet man an der Wand seit ich 13 Jahre alt war und ich kann mir mein Leben entsprechend nicht mehr ohne Bouldern vorstellen.",
 			],
 		},
 		{
-			title: "Consultant at Aclue",
+			title: "Berater bei Aclue",
 			description: [
-				"I am currently employed at Aclue, working 40 hours each week as a Frontend consultant. Since my start on the 01.03.2022, I have been working on a project for OTTO. The project contains the aiding of the creation, as well as the maintanance and documentation of a design system based on MUI.",
+				"Momentan bin ich bei Aclue als Berater angestellt - mit einem Fokus auf Frontend. Seit dem 01.03.2022 habe ich an einem Projekt für OTTO gearbeitet. Dieses Projekt besteht aus dem Erstellen von neuen Komponenten für das Design System, der Wartung und der Dokumentation von weiteren Elementen basierend auf MUI.",
 			],
 		},
 	],
 	Projects: [
 		{
-			title: "Dorfentwicklung UVP Stelzer - Website",
+			title: "Dorfentwicklung UVP Stelzer - Webseite",
 			websiteLink: "https://dorfentwicklung.regionalplan-uvp.de/",
 			sourceCodeLink: "",
 		},
 	],
+	workingExperienceTitle: "Arbeitserfahrung",
 	WorkingExperience: [
 		{
 			company: "Aclue GmbH",
-			position: "Frontend Consultant",
-			timeframe: "01.03.2022 - Ongoing",
+			position: "Frontend Berater",
+			timeframe: "01.03.2022 - 31.12.2022",
 			responsibilities: [
-				"Component creation based on MUI",
-				"Maintanance on a design system for OTTO",
-				"Component documentation with Storybook",
-				"Storybook customization and setup",
-				"Support for questions regarding the design system",
+				"Erstellung von Komponenten basierend auf MUI",
+				"Wartung eines Design Systems für OTTO",
+				"Dokumentation der erstellten Komponenten durch Storybook",
+				"Aufbau und Erweiterung von dem interen Storybook",
+				"Support für Fragen bezüglich des Design Systems und der gebauten Komponenten",
 			],
 		},
 		{
 			company: "FarmAct GmbH",
-			position: "Fulltime Intern",
+			position: "Vollzeit Praktikant",
 			timeframe: "01.10.2021 - 31.01.2022",
 			responsibilities: [
-				"Development with React, Typescript, Firebase and Ionic",
+				"Entwicklung mit React, Typescript, Firebase und Ionic",
 			],
 		},
 		{
 			company: "Regionalplan & UVP",
-			position: "Working Student Frontend",
+			position: "Werkstudent Frontend",
 			timeframe: "01.03.2021 - 01.10.2021",
 			responsibilities: [
-				"Creation of the website https://dorfentwicklung.regionalplan-uvp.de",
-				"Management of the page and continuous updates",
-				"Integration with Netlify CMS to enable their team in making independant content updates",
+				"Erstellung der Webseite https://dorfentwicklung.regionalplan-uvp.de",
+				"Wartung der Webseite",
+				"Integration mit Netlify CMS um dem Team das unabhängige Updaten von Inhalten zu ermöglichen",
 			],
 		},
 		{
 			company: "JaZuYoga",
-			position: "5hrs/week Support",
+			position: "5hrs/week Unterstützung",
 			timeframe: "01.01.2019 - 01.02.2021",
 			responsibilities: [
-				"Creation of image templates for Instagram",
+				"Erstellung von Templates für Instagram",
 				"Research",
-				"Video editing with Premiere Pro",
-				"Aiding of the transformation of the Yoga center to remote during Corona times",
+				"Videobearbeitung mit Premiere Pro",
+				"Unterstützung der Transformation des Yoga Zentrums in den Remoteunterricht während Corona Zeiten",
 			],
 		},
 		{
 			company: "SAP",
-			position: "Working Student",
+			position: "Werkstudent",
 			timeframe: "31.07.2017 - 28.02.2018",
 			responsibilities: [
-				"Creation of infographics",
-				"Graphic enhancement of MS PowerPoint slides",
-				"Creation of Stencils and Templates in Sketch",
+				"Erstellung von Infographiken",
+				"Graphische Aufarbeitung von MS PowerPoint slides",
+				"Erstellung von Stencils und Templates in Sketch",
 			],
 		},
 	],
+	educationTitle: "Bildung",
 	Education: [
 		{
-			name: "School Certificate : Abitur",
+			name: "Schulabschluss : Abitur",
 			location: "Illtal-Gymnasium Illingen",
-			timeframe: "August 2007 - June 2015",
+			timeframe: "August 2007 - Juni 2015",
 		},
 		{
-			name: "EF Language School",
+			name: "EF Sprachschule",
 			location: "San Francisco Down Town, USA (EF-School)",
-			timeframe: "September 2015 - July 2016",
+			timeframe: "September 2015 - Juli 2016",
 		},
 		{
 			name: "Bachelor of Science",
@@ -229,6 +247,7 @@ export const contentDe = {
 			timeframe: "April 2018 - April 2022",
 		},
 	],
+	experienceAbroadTitle: "Auslandserfahrung",
 	ExperienceAbroad: [
 		{
 			name: "Cambridge Exam (C1)",
@@ -237,8 +256,20 @@ export const contentDe = {
 		},
 		{
 			name: "Advanced Diploma in Online Marketing",
-			location: "San Francisco Down Town, USA (EF-School)",
-			timeframe: "September 2015 - July 2016",
+			location: "San Francisco Down Town, USA (EF-Sprachschule)",
+			timeframe: "September 2015 - Juli 2016",
 		},
 	],
+	myProjectsTitle: "Meine Projekte",
+	contactTitle: "Kontakt aufnehmen",
+	Contact: {
+		entryText:
+			"Wenn du Kontakt aufnehmen möchtest kannst du mir einfach eine Mail senden.",
+		socialsText: "Ich bin auch auf GitHub, Instagram und LinkedIn zu finden.",
+		cv: {
+			text: "Alternativ lässt sich mein CV downloaden.",
+			action: "hier downloaden.",
+		},
+		buttonText: "Tu es!",
+	},
 };
