@@ -31,12 +31,13 @@ export const contentEn = {
 				"After work, my heart primarily beats for climbing, or more specifically for bouldering. I have been doing this sport since the age of 13 and could not imagine a life without it anymore.",
 			],
 		},
-		{
-			title: "Consultant at Aclue",
-			description: [
-				"I am currently employed at Aclue, working 40 hours each week as a Frontend consultant. Since my start on the 01.03.2022, I have been working on a project for OTTO. The project contains the aiding of the creation, as well as the maintanance and documentation of a design system based on MUI.",
-			],
-		},
+		// TODO: Add a third one to replace my working place
+		// {
+		// 	title: "Consultant at Aclue",
+		// 	description: [
+		// 		"I am currently employed at Aclue, working 40 hours each week as a Frontend consultant. Since my start on the 01.03.2022, I have been working on a project for OTTO. The project contains the aiding of the creation, as well as the maintanance and documentation of a design system based on MUI.",
+		// 	],
+		// },
 	],
 	Projects: [
 		{
@@ -161,12 +162,13 @@ export const contentDe = {
 				"Nach der Arbeit schlägt mein Herz primär für den Bouldersport. Mich findet man an der Wand seit ich 13 Jahre alt war und ich kann mir mein Leben entsprechend nicht mehr ohne Bouldern vorstellen.",
 			],
 		},
-		{
-			title: "Berater bei Aclue",
-			description: [
-				"Momentan bin ich bei Aclue als Berater angestellt - mit einem Fokus auf Frontend. Seit dem 01.03.2022 habe ich an einem Projekt für OTTO gearbeitet. Dieses Projekt besteht aus dem Erstellen von neuen Komponenten für das Design System, der Wartung und der Dokumentation von weiteren Elementen basierend auf MUI.",
-			],
-		},
+		// TODO: Add the translation of the third one that I have yet to add
+		// {
+		// 	title: "Berater bei Aclue",
+		// 	description: [
+		// 		"Momentan bin ich bei Aclue als Berater angestellt - mit einem Fokus auf Frontend. Seit dem 01.03.2022 habe ich an einem Projekt für OTTO gearbeitet. Dieses Projekt besteht aus dem Erstellen von neuen Komponenten für das Design System, der Wartung und der Dokumentation von weiteren Elementen basierend auf MUI.",
+		// 	],
+		// },
 	],
 	Projects: [
 		{
