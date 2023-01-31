@@ -1,6 +1,8 @@
 import { motion, useInView } from "framer-motion";
-import { forwardRef, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const DescriptionWrapper = styled.div<{ inView: boolean; clicked: boolean }>`
 	display: flex;
@@ -56,7 +58,7 @@ const SVG = styled(motion.svg)<{ inView: boolean; clicked: boolean }>`
 `;
 
 const Description = styled(motion.p)<{ inView: boolean }>`
-	width: 200px;
+	width: 140px;
 	height: 60px;
 	font-size: 1.75rem;
 	color: var(--contrastColor);
@@ -79,7 +81,7 @@ const Description = styled(motion.p)<{ inView: boolean }>`
 
 	@media (min-width: 720px) {
 		font-size: 2.5rem;
-		width: 40%;
+		width: 300px;
 	}
 
 	@media (min-width: 920px) {
@@ -124,8 +126,6 @@ const DescriptionOpener = (props: { inView: boolean; clicked: boolean }) => (
 		clicked={props.clicked}
 		inView={props.inView}
 		xmlns="http://www.w3.org/2000/svg"
-		animate={props.inView ? { x: 0 } : { x: "100vw" }}
-		transition={{ duration: 1 }}
 		viewBox="0 0 20 2">
 		<motion.path
 			animate={props.clicked ? { rotate: 180 } : { rotate: 0 }}
@@ -148,21 +148,34 @@ export interface CategoryProps {
 export type Ref = HTMLDivElement;
 
 export const Category = (props: CategoryProps) => {
-	const categoryRef = useRef(null);
+	gsap.registerPlugin(ScrollTrigger);
+
+	const categoryRef = useRef<HTMLDivElement>(null);
 	const isInView: boolean = useInView(categoryRef, {
 		margin: "0px 100px -100px 0px",
 		once: true,
 	});
 
+	useEffect(() => {
+		gsap.fromTo(
+			categoryRef.current,
+			{ x: window.innerWidth },
+			{
+				x: 0,
+				scrollTrigger: {
+					trigger: categoryRef.current,
+					start: "top bottom",
+					end: "bottom 60%",
+					scrub: true,
+				},
+			}
+		);
+	}, []);
+
 	return (
 		<CategoryWrapper onClick={(e) => props.onClick(e)} ref={categoryRef}>
 			<DescriptionWrapper clicked={props.clicked} inView={isInView}>
-				<Description
-					animate={isInView ? { y: 0 } : { y: "100vw" }}
-					transition={{ duration: 1 }}
-					inView={isInView}>
-					{props.title}
-				</Description>
+				<Description inView={isInView}>{props.title}</Description>
 				<DescriptionOpener inView={isInView} clicked={props.clicked} />
 			</DescriptionWrapper>
 			<TextSection

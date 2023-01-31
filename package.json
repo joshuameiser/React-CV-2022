@@ -19,6 +19,7 @@
 		"@joshuameiser/utility-functions": "^0.0.0",
 		"@mui/material": "^5.10.15",
 		"framer-motion": "^7.2.0",
+		"gsap": "^3.11.4",
 		"i18next": "^22.0.6",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
