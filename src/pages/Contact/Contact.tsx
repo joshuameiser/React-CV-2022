@@ -93,7 +93,7 @@ export const Contact = () => {
 				<ContactButton
 					backgroundColor="var(--primaryColor)"
 					hoverColor="var(--primaryHover)"
-					color="var(--contrastColor)"
+					color="var(--buttonContrast)"
 					onClick={() => {
 						window.open("mailto:jm@joshuameiser.de");
 					}}>

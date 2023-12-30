@@ -13,4 +13,5 @@ $secondary-color: #0075ff;
 	--contrastColor: #ced4da;
 	--primaryHover: #{lighten($primary-color, 10%)};
 	--secondaryHover: #{lighten($secondary-color, 10%)};
+	--buttonContrast: #ced4da;
 }
