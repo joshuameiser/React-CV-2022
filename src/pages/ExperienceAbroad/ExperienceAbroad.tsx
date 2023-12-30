@@ -20,9 +20,10 @@ export const ExperienceAbroad = () => {
 		<PageWrapper>
 			<Headline>{content.experienceAbroadTitle}</Headline>
 			<ContentWrapper>
-				{content.ExperienceAbroad.map((entry) => {
+				{content.ExperienceAbroad.map((entry, index) => {
 					return (
 						<Experience
+							key={entry.name + index}
 							name={entry.name}
 							location={entry.location}
 							timeframe={entry.timeframe}

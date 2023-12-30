@@ -9,8 +9,8 @@ const Wrapper = styled(motion.div)`
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
-  padding:16px;
-  margin-left:16px;
+	padding: 16px;
+	margin-left: 16px;
 	color: var(--contrastColor);
 	border: 1px solid var(--primaryColor);
 	border-radius: 8px;
@@ -19,9 +19,9 @@ const Wrapper = styled(motion.div)`
 		background-color: var(--primaryHover);
 	}
 
-  @media(min-width:640px) {
-    margin-left:64px;
-  }
+	@media (min-width: 640px) {
+		margin-left: 64px;
+	}
 `;
 
 const Divider = styled.div`
@@ -61,22 +61,26 @@ export interface ProjectProps {
 	sourceCodeLink?: string;
 }
 
-export const Project = (props: ProjectProps) => {
+export const Project = ({
+	name,
+	websiteLink,
+	sourceCodeLink,
+}: ProjectProps) => {
 	return (
 		<Wrapper>
-			<Heading>{props.name}</Heading>
-			{(props.websiteLink || props.sourceCodeLink) && <Divider />}
+			<Heading>{name}</Heading>
+			{(websiteLink || sourceCodeLink) && <Divider />}
 			<LinkWrapper>
-				{props.websiteLink && (
-					<Link href={props.websiteLink} target="__self">
+				{websiteLink && (
+					<Link href={websiteLink} target="__self">
 						<FontAwesomeIcon
 							className="project-icon"
 							icon={faUpRightFromSquare}
 						/>
 					</Link>
 				)}
-				{props.sourceCodeLink && (
-					<Link href={props.sourceCodeLink} target="__self">
+				{sourceCodeLink && (
+					<Link href={sourceCodeLink} target="__self">
 						<FontAwesomeIcon className="project-icon" icon={faGithub} />
 					</Link>
 				)}

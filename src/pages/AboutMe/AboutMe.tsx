@@ -16,18 +16,30 @@ const IconWrapper = styled(motion.div)`
 `;
 
 export const AboutMe = () => {
+	// hook containing the text content
 	const content = useContent();
 
+	// generates an array of false values with the length of the whoAmI array
+	// -> only one category can be open at a time
 	const fillFalseArray = () => {
 		return new Array(content.whoAmI.length).fill(false);
 	};
 
+	// every element in the array represents a category & all of them are closed at the beginning
 	const [clicked, setClicked] = useState<boolean[]>(fillFalseArray());
 
 	const { theme } = useContext(ThemeContext);
+
+	// if the theme changes, all categories are closed
 	useEffect(() => {
 		setClicked(fillFalseArray());
 	}, [theme]);
+
+	const toggleOpenCategory = (index: number) => {
+		const tempArray = new Array(content.whoAmI.length).fill(false);
+		tempArray[index] = !clicked[index];
+		setClicked(tempArray);
+	};
 
 	return (
 		<PageWrapper>
@@ -35,11 +47,10 @@ export const AboutMe = () => {
 			{content.whoAmI.map((element, index) => {
 				return (
 					<Category
+						key={element.title + index}
 						title={element.title}
 						onClick={() => {
-							const tempArray = new Array(content.whoAmI.length).fill(false);
-							tempArray[index] = !clicked[index];
-							setClicked(tempArray);
+							toggleOpenCategory(index);
 						}}
 						clicked={clicked[index]}>
 						{element.description.map((section) => {

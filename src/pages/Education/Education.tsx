@@ -18,9 +18,10 @@ export const Education = () => {
 		<PageWrapper>
 			<Headline position="right">{content.educationTitle}</Headline>
 			<ContentWrapper>
-				{content.Education.map((entry) => {
+				{content.Education.map((entry, index) => {
 					return (
 						<EducationStep
+							key={entry.name + index}
 							name={entry.name}
 							location={entry.location}
 							timeframe={entry.timeframe}
