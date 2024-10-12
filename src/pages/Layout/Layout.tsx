@@ -61,7 +61,7 @@ export const Layout = () => {
 					<ExperienceAbroad />
 					<Education />
 					<MyProjects />
-					<Contact />
+					{/* <Contact /> */}
 				</Content>
 			</LayoutWrapper>
 		</ThemeContext.Provider>
